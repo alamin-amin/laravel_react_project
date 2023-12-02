@@ -1,7 +1,8 @@
 
-import axios from 'axios';
+
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 const Register = () => {
 
@@ -12,7 +13,7 @@ const Register = () => {
     });
 
     const handleInput = (e) => {
-        e.presist();
+        e.persist();
         setRegister({ ...registerInput, [e.target.name]: e.target.vale });
     }
     const registerSubmitFrom = (e) => {
@@ -23,7 +24,7 @@ const Register = () => {
             email: registerInput.email,
             password: registerInput.password,
         }
-        axios.post(`http://127.0.0.1:8000/api/register`, data).then(res => {
+       axios.post(`http://127.0.0.1:8000/api/register`, data).then(res => {
 
         });
     }
