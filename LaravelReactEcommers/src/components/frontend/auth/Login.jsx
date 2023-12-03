@@ -27,7 +27,7 @@ const Login = () => {
                                             </div>
                                             <div className="d-flex align-items-center justify-content-between mt-4 mb-0">
                                                 <Link className="small" to="password.html">Forgot Password?</Link>
-                                                <Link className="btn btn-primary" to="/frontLayout">Login</Link>
+                                                <Link className="btn btn-primary" to="/">Login</Link>
                                             </div>
                                         </form>
                                     </div>

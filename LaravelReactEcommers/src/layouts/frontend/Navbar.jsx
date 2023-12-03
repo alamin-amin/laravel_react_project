@@ -46,11 +46,11 @@ const Navbar = () => {
                                    Profile
                                 </Link>
                                 <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <li><Link className="dropdown-item" to="/">Login</Link></li>
+                                    <li><Link className="dropdown-item" to="/login">Login</Link></li>
                                     <li><Link className="dropdown-item" to="/register">Registation</Link></li>
                                     <li><hr className="dropdown-divider" /></li>
                                     <li><Link className="dropdown-item" to="/dashboard">Dashboard</Link></li>
-                                    <li><Link className="dropdown-item" to="/">Log Out</Link></li>
+                                    <li><Link className="dropdown-item" to="/login">Log Out</Link></li>
                                 </ul>
                             </div>
                         </div>
