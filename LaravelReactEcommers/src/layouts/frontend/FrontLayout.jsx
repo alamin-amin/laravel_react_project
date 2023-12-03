@@ -11,11 +11,12 @@ const FrontLayout = ({ children }) => {
   return (
     <div>
       <Navbar />
+      {children}
       <BgImage />
       <Category />
       <Home />
       <ProductCard />
-      {children}
+      
       <Footer />
     </div>
   )

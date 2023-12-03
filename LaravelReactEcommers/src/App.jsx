@@ -5,11 +5,13 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Login from "./components/frontend/auth/Login";
 import Register from "./components/frontend/auth/Register";
 import FrontLayout from "./layouts/frontend/FrontLayout";
+import Home from "./components/frontend/Home";
 
 //backend 
 import Dashboard from "./components/admin/Dashboard";
 import AddCategory from "./components/admin/Category/Add_Category";
 import AllCategory from "./components/admin/Category/All_Category";
+
 
 
 
@@ -29,6 +31,8 @@ function App() {
        {/* sorry.... */}
           
           <Route path="/frontLayout" element={< FrontLayout />} />
+          <Route path="/frontHome" element={<Home />} />
+
 
         </Routes>
       </BrowserRouter>
