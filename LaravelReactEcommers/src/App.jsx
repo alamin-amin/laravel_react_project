@@ -9,7 +9,7 @@ axios.defaults.headers.post['Accept'] = 'application/json';
 
 
 
-axios.defaults.baseURL = "http://127.0.0.1:8000/";
+// axios.defaults.baseURL = "http://127.0.0.1:8000/";
 axios.defaults.withCredentials = true;
 
 import Login from "./components/frontend/auth/Login";
