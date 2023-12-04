@@ -35,7 +35,7 @@ class AuthController extends Controller
             'status'=>200,
             'username'=>$user->name,
             'token'=>$token,
-            'massage'=>'Regitered Successfully',
+            'massage'=>'Registered Successfully',
         ]);
 
         }
