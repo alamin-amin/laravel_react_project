@@ -22,7 +22,7 @@ const AddCategory = () => {
     slug: categoryInput.slug,
     status: categoryInput.status,
   }
-  axios.post(`http://127.0.0.1:8000/api/add-category`, data).then(res => {
+  axios.post(`api/add-category`, data).then(res => {
     if (res.data.status === 200) {
       swal("Success", res.data.message, "success");
       document.getElementById('categoryFrom').reset();

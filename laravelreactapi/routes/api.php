@@ -11,10 +11,9 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::post('register',[AuthController::class,'register']);
-Route::get('User-register',[AuthController::class,'index']);
-
 
 Route::post('/add-category',[categoryController::class,'addCategory']);
+Route::get('/all-category',[categoryController::class,'index']);
 
 
 

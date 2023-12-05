@@ -1,53 +1,70 @@
 
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom';
+import axios from 'axios';
 import MasterLayout from '../../../layouts/admin/MasterLayout'
 
+
 const All_Category = () => {
+    const [loading, setLoading] = useState(true);
+    const [categorylist, setCategorylist] = useState([]);
+
+    useEffect(() => {
+        axios.get(`/api/all-category`).then(res => {
+            console.log(res.data.category)
+            if (res.status === 200) {
+                setCategorylist(res.data.category)
+            }
+            setLoading(false);
+        });
+    }, []);
+
+    var viewCategory = '';
+    if (loading) {
+        return <h3>Loaging Category...</h3>
+    } else {
+        viewCategory =
+            categorylist.map((items) => {
+                return (
+                    <tr key={items.id}>
+                        <td>{items.id}</td>
+                        <td>{items.categoryName}</td>
+                        <td>{items.slug}</td>
+                        <td>{items.status}</td>
+                        <td>
+                            <Link to={`edit-category/${items.id}`} className='btn btn-success btn-sm me-1'>Edit</Link>
+                            <button to={`edit-category/${items.id}`} className='btn btn-success btn-sm'>Delete</button>
+                        </td>
+                    </tr>
+                )
+            });
+    }
+
     return (
         <div>
             <MasterLayout>
                 <div className="card mb-4">
-                    <div className="card-header">
-                        <i className="fas fa-table me-1"></i>
-                        DataTable Example
+                    <div className="p-3">
+                        <div><h2>All Category
+                            <Link to="/admin/addCategory" className='btn btn-primary float-end'>Add Category</Link>
+                        </h2>
+                        </div>
                     </div>
+
                     <div className="card-body">
-                        <table id="datatablesSimple">
+                        <table className='table table-striped' id="datatablesSimple">
                             <thead>
                                 <tr>
+                                    <th># ID</th>
                                     <th>Name</th>
-                                    <th>Position</th>
-                                    <th>Office</th>
-                                    <th>Age</th>
-                                    <th>Start date</th>
-                                    <th>Salary</th>
+                                    <th>Slug</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
+
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>Tiger Nixon</td>
-                                    <td>System Architect</td>
-                                    <td>Edinburgh</td>
-                                    <td>61</td>
-                                    <td>2011/04/25</td>
-                                    <td>$320,800</td>
-                                </tr>
-                                <tr>
-                                    <td>Garrett Winters</td>
-                                    <td>Accountant</td>
-                                    <td>Tokyo</td>
-                                    <td>63</td>
-                                    <td>2011/07/25</td>
-                                    <td>$170,750</td>
-                                </tr>
-                                <tr>
-                                    <td>Ashton Cox</td>
-                                    <td>Junior Technical Author</td>
-                                    <td>San Francisco</td>
-                                    <td>66</td>
-                                    <td>2009/01/12</td>
-                                    <td>$86,000</td>
-                                </tr>
+                                {viewCategory}
                             </tbody>
                         </table>
                     </div>
