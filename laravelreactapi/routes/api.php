@@ -14,6 +14,7 @@ Route::post('register',[AuthController::class,'register']);
 
 Route::post('/add-category',[categoryController::class,'addCategory']);
 Route::get('/all-category',[categoryController::class,'index']);
+Route::get('/edit-category/{id}',[categoryController::class,'editCategory']);
 
 
 

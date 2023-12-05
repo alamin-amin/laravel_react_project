@@ -11,7 +11,7 @@ const All_Category = () => {
 
     useEffect(() => {
         axios.get(`/api/all-category`).then(res => {
-            console.log(res.data.category)
+            // console.log(res.data.category)
             if (res.status === 200) {
                 setCategorylist(res.data.category)
             }
@@ -21,7 +21,7 @@ const All_Category = () => {
 
     var viewCategory = '';
     if (loading) {
-        return <h3>Loaging Category...</h3>
+        return <h3 className='text-center mt-5'>Loaging Category...</h3>
     } else {
         viewCategory =
             categorylist.map((items) => {
@@ -32,7 +32,7 @@ const All_Category = () => {
                         <td>{items.slug}</td>
                         <td>{items.status}</td>
                         <td>
-                            <Link to={`edit-category/${items.id}`} className='btn btn-success btn-sm me-1'>Edit</Link>
+                            <Link to={`/admin/edit-category/${items.id}`} className='btn btn-success btn-sm me-1'>Edit</Link>
                             <button to={`edit-category/${items.id}`} className='btn btn-success btn-sm'>Delete</button>
                         </td>
                     </tr>

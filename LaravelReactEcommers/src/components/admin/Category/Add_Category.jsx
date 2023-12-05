@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import MasterLayout from '../../../layouts/admin/MasterLayout'
 import axios from 'axios';
 import { swal } from 'sweetalert';
+import { Link } from 'react-router-dom';
 
 
 const AddCategory = () => {
@@ -38,7 +39,12 @@ const AddCategory = () => {
     <div className='ms-3'>
       <MasterLayout>
         <div className='container-fluid'>
-          <h3 className='mt-2'>Add Category</h3>
+          <div className="p-3">
+            <div><h2>Add Category
+              <Link to="/admin/allCategory" className='btn btn-primary float-end'>All Category</Link>
+            </h2>
+            </div>
+          </div>
           <form onSubmit={submitCategoryFrom}>
             <div className='row'>
               <div className="col-md-6 mb-3 ">

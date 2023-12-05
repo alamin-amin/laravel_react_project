@@ -19,6 +19,8 @@ import Home from "./components/frontend/Home";
 import Dashboard from "./components/admin/Dashboard";
 import AddCategory from "./components/admin/Category/Add_Category";
 import AllCategory from "./components/admin/Category/All_Category";
+import EditCategory from "./components/admin/Category/Edit_Category";
+
 
 
 
@@ -40,6 +42,7 @@ function App() {
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/admin/allCategory" element={< AllCategory />} />
           <Route path="/admin/addCategory" element={< AddCategory />} />
+          <Route path="/admin/edit-category/:id" element={< EditCategory />} />
           
 
         </Routes>

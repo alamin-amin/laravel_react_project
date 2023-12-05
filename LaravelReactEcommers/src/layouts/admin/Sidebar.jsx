@@ -21,6 +21,7 @@ const Sidebar = () => {
                         <nav className="sb-sidenav-menu-nested nav">
                             <Link className="nav-link" to="/admin/allCategory">All Category</Link>
                             <Link className="nav-link" to="/admin/addCategory">Add Category</Link>
+                            <Link className="nav-link" to="/admin/editCategory">Edit Category</Link>
                         </nav>
                     </div>
                     <Link className="nav-link collapsed" to="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
