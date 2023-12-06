@@ -19,6 +19,26 @@ const All_Category = () => {
         });
     }, []);
 
+
+    const deleteCategory = (e, id) => {
+        const thisClicked = e.currentTarget;
+        thisClicked.innerText = "Deleting";
+
+        axios.delete(`api/delete-category/${id}`).then(res => {
+            if (res.data.status === 200) {
+                swal('Success', res.data.message, 'success');
+                thisClicked.closest("tr").remove();
+
+            }
+            else if (res.data.status === 404) {
+                swal('Success', res.data.message, 'success');
+                thisClicked.innerText = "Delete";
+            }
+        });
+        e.preventDefault();
+
+    }
+
     var viewCategory = '';
     if (loading) {
         return <h3 className='text-center mt-5'>Loaging Category...</h3>
@@ -33,7 +53,7 @@ const All_Category = () => {
                         <td>{items.status}</td>
                         <td>
                             <Link to={`/admin/edit-category/${items.id}`} className='btn btn-success btn-sm me-1'>Edit</Link>
-                            <button to={`edit-category/${items.id}`} className='btn btn-success btn-sm'>Delete</button>
+                            <button type='button' onClick={(e) => deleteCategory(e, items.id)} className='btn btn-success btn-sm'>Delete</button>
                         </td>
                     </tr>
                 )

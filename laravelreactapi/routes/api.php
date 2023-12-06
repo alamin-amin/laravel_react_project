@@ -21,6 +21,7 @@ Route::middleware(['auth:sanctum'])->group( function() {
 Route::post('/add-category',[categoryController::class,'addCategory']);
 Route::get('/all-category',[categoryController::class,'index']);
 Route::get('/edit-category/{id}',[categoryController::class,'editCategory']);
+Route::delete('/delete-category/{id}',[categoryController::class,'destroy']);
 
 
 
