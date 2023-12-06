@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
 import MasterLayout from '../../../layouts/admin/MasterLayout'
-import { swal } from 'sweetalert';
+// import { swal } from 'sweetalert';
 
 function EditCategory(props) {
     const [categoryInput, setCategory] = useState([]);
@@ -52,7 +52,7 @@ function EditCategory(props) {
                                 </div>
                             </div>
                             <div className=" mb-3">
-                                <button type="submit" className="btn btn-primary">Upadete</button>
+                                <button type="submit" className="btn btn-primary">Updete</button>
                             </div>
                         </div>
                     </form>

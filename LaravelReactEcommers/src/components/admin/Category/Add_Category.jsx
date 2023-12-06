@@ -1,11 +1,13 @@
 import React, { useState } from 'react'
 import MasterLayout from '../../../layouts/admin/MasterLayout'
 import axios from 'axios';
-import { swal } from 'sweetalert';
+//  import { swal } from 'sweetalert';
 import { Link } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
 
 const AddCategory = () => {
+  const navigate = useNavigate();
   const [categoryInput, setCategory] = useState({
     categoryName: '',
     slug: '',
@@ -14,26 +16,32 @@ const AddCategory = () => {
   });
   const handleInput = (e) => {
     setCategory({ ...categoryInput, [e.target.name]: e.target.value });
+    
   }
   const submitCategoryFrom = (e) => {
+  
+    axios.post(`api/add-category`, data).then(res => {
+      
+      if (res.data.status === 200) {
+        swal("Success", res.data.message, "success");
+        document.getElementById('categoryFrom').reset();
+      }
+      else if (res.data.status === 400) {
+        setCategory({ ...categoryInput, error_list: res.data.errors });
+      }
+  
+  
+    });
+   
     e.preventDefault();
+    navigate('/admin/allCategory')
   }
   const data = {
     categoryName: categoryInput.categoryName,
     slug: categoryInput.slug,
     status: categoryInput.status,
   }
-  axios.post(`api/add-category`, data).then(res => {
-    if (res.data.status === 200) {
-      swal("Success", res.data.message, "success");
-      document.getElementById('categoryFrom').reset();
-    }
-    else if (res.data.status === 400) {
-      setCategory({ ...categoryInput, error_list: res.data.errors });
-    }
 
-
-  });
 
   return (
     <div className='ms-3'>

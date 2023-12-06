@@ -3,12 +3,12 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import { useNavigate } from "react-router-dom";
 //  import swal from 'sweetalert';
 
 
 const Register = () => {
-
-    // const history = useHistory();
+    const navigate = useNavigate();
     const [registerInput, setRegister] = useState({
         name: '',
         email: '',
@@ -18,10 +18,12 @@ const Register = () => {
 
     const handleInput = (e) => {
         e.persist();
-        setRegister({ ...registerInput, [e.target.name]: e.target.vale });
+        setRegister({ ...registerInput, [e.target.name]: e.target.value });
+
     }
     const registerSubmitFrom = (e) => {
-        e.preventDefault();
+
+
         const data = {
 
             name: registerInput.name,
@@ -35,12 +37,14 @@ const Register = () => {
                     localStorage.setItem('auth_token', res.data.token);
                     localStorage.setItem('auth_name', res.data.username);
                     swal('Success', res.data.message, 'success');
-                    history.push('/frontLayout');
+                    // history.push('/frontLayout');
                 } else {
                     setRegister({ ...registerInput, error_list: res.data.validation_errors });
                 }
             });
         });
+        e.preventDefault();
+        navigate('/login')
     }
 
     return (
@@ -56,23 +60,23 @@ const Register = () => {
                                         <form onSubmit={registerSubmitFrom}>
                                             <div className="row mb-3">
                                                 <div className="col-md-12">
-                                                    <div className="form-floating mb-3 mb-md-0">
-                                                        <label htmlFor="inputFirstName">First name</label>
-                                                        <input type="text" name='name' onChange={handleInput} value={registerInput.name} className="form-control" id="inputFirstName" placeholder="Enter your name" />
+                                                    <div className="mb-3 mb-md-0">
+                                                        <label htmlFor="name"> Name : </label>
+                                                        <input type="text" name='name' onChange={handleInput} value={registerInput.name} className="form-control" id="inputFirstName" placeholder='Type your name'/>
                                                         <span>{registerInput.error_list.name}</span>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div className="form-floating mb-3">
-                                                <label htmlFor="inputEmail">Email address</label>
-                                                <input type="email" name='email' onChange={handleInput} value={registerInput.email} className="form-control" id="inputEmail"  placeholder="name@example.com" />
+                                            <div className=" mb-3">
+                                                <label htmlFor="inputEmail">Email address : </label>
+                                                <input type="email" name='email' onChange={handleInput} value={registerInput.email} className="form-control" id="inputEmail" placeholder='Email Address' />
                                                 <span>{registerInput.error_list.email}</span>
                                             </div>
                                             <div className="row mb-3">
                                                 <div className="col-md-12">
-                                                    <div className="form-floating mb-3 mb-md-0">
-                                                        <label htmlFor="inputPassword">Password</label>
-                                                        <input type="password" name='password' onChange={handleInput} value={registerInput.password} className="form-control" id="inputPassword"  placeholder="password" />
+                                                    <div className=" mb-3 mb-md-0">
+                                                        <label htmlFor="inputPassword">Password : </label>
+                                                        <input type="password" name='password' onChange={handleInput} value={registerInput.password} className="form-control" id="inputPassword" placeholder='Password'/>
                                                         <span>{registerInput.error_list.name}</span>
                                                     </div>
                                                 </div>
