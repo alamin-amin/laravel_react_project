@@ -5,14 +5,54 @@ const Sidebar = () => {
     return (
         <nav className="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
             <div className="sb-sidenav-menu">
-                <div className="nav">
-                    <Link className="nav-link" to="/">
-                        <div className="sb-nav-link-icon"><i className="fas fa-tachometer-alt"></i></div>
-                        Dashboard
-                    </Link>
-                   
-                   
-                    <Link className="nav-link collapsed" to="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                <div className="nav sidenavAccordionPages">
+
+                    <nav className="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
+                        <Link className="nav-link" to="/">
+                            <div className="sb-nav-link-icon"><i className="fas fa-tachometer-alt"></i></div>
+                            Dashboard
+                        </Link>
+
+                        <Link className="nav-link collapsed" to="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth">
+                            Category
+                            <div className="sb-sidenav-collapse-arrow"><i className="fas fa-angle-down"></i></div>
+                        </Link>
+                        <div className="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
+                            <nav className="sb-sidenav-menu-nested nav">
+                                <Link className="nav-link" to="/admin/allCategory">All Category</Link>
+                                <Link className="nav-link" to="/admin/addCategory">Add Category</Link>
+                                <Link className="nav-link" to="/admin/editCategory">Edit Category</Link>
+                            </nav>
+                        </div>
+
+                        <Link className="nav-link collapsed" to="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseError" aria-expanded="false" aria-controls="pagesCollapseError">
+                            Product
+                            <div className="sb-sidenav-collapse-arrow"><i className="fas fa-angle-down"></i></div>
+                        </Link>
+                        <div className="collapse" id="pagesCollapseError" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
+                            <nav className="sb-sidenav-menu-nested nav">
+                                <Link className="nav-link" to="#">Add Product</Link>
+                                <Link className="nav-link" to="#">All product</Link>
+                                <Link className="nav-link" to="#">Edit Category</Link>
+                            </nav>
+                        </div>
+
+                         <Link className="nav-link collapsed" to="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth">
+                           Order
+                            <div className="sb-sidenav-collapse-arrow"><i className="fas fa-angle-down"></i></div>
+                        </Link>
+                        <div className="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
+                            <nav className="sb-sidenav-menu-nested nav">
+                                <Link className="nav-link" to="/admin/allCategory">All Category</Link>
+                                <Link className="nav-link" to="/admin/addCategory">Add Category</Link>
+                                <Link className="nav-link" to="/admin/editCategory">Edit Category</Link>
+                            </nav>
+                        </div>
+                    </nav>
+
+
+                    {/* 
+                    <Link className="nav-link collapsed" to="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="">
                         <div className="sb-nav-link-icon"><i className="fas fa-columns"></i></div>
                         Category
                         <div className="sb-sidenav-collapse-arrow"><i className="fas fa-angle-down"></i></div>
@@ -24,6 +64,22 @@ const Sidebar = () => {
                             <Link className="nav-link" to="/admin/editCategory">Edit Category</Link>
                         </nav>
                     </div>
+
+                    <Link className="nav-link collapsed" to="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                        <div className="sb-nav-link-icon"><i className="fas fa-columns"></i></div>
+                        Product
+                        <div className="sb-sidenav-collapse-arrow"><i className="fas fa-angle-down"></i></div>
+                    </Link>
+                    <div className="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                        <nav className="sb-sidenav-menu-nested nav">
+                            <Link className="nav-link" to="/admin/allCategory">Add Product</Link>
+                            <Link className="nav-link" to="/admin/addCategory">All product</Link>
+                            <Link className="nav-link" to="/admin/editCategory">Edit Category</Link>
+                        </nav>
+                    </div> */}
+
+
+
                     <Link className="nav-link collapsed" to="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
                         <div className="sb-nav-link-icon"><i className="fas fa-book-open"></i></div>
                         Pages

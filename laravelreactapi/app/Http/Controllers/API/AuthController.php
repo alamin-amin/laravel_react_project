@@ -10,9 +10,6 @@ use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
-    public function index(){
-        return ('a.asdfsdg');
-    }
     public function register (Request $request){
         $validator = Validator::make($request->all(), [
             'name'=>'required',
