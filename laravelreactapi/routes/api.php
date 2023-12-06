@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Route;
 
 
 
+Route::post('login',[AuthController::class,'userLogin']);
 Route::post('register',[AuthController::class,'register']);
 
 Route::post('/add-category',[categoryController::class,'addCategory']);
