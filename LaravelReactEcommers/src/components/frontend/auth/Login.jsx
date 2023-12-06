@@ -6,7 +6,7 @@ import swal from 'sweetalert';
 
 const Login = () => {
     const navigate = useNavigate();
-    const [loginInput, setLogin] =useState({
+    const [loginInput, setLogin] = useState({
         email: '',
         password: '',
         error_list: [],
@@ -22,22 +22,20 @@ const Login = () => {
             password: loginInput.password,
         }
         axios.get('/sanctum/csrf-cookie').then(response => {
-        axios.post(`api/login`, data).then(res => {
-            if (res.data.status === 200) {
-                localStorage.setItem('auth_token', res.data.token);
-                localStorage.setItem('auth_name', res.data.username);
-                swal("Success", res.data.message," success");            
-                // navigate('/')
-            } else if(res.data.status === 401)
-            {
-                swal('Warning', res.data.message, 'warning');
-            }
-            else {
-                setLogin({ ...loginInput, error_list: res.data.validation_errors });
-            }
+            axios.post(`api/login`, data).then(res => {
+                if (res.data.status === 200) {
+                    localStorage.setItem('auth_token', res.data.token);
+                    localStorage.setItem('auth_name', res.data.username);
+                    swal("Success", res.data.message, "success");
+                     navigate('/')
+                } else if (res.data.status === 401) {
+                    swal('Warning', res.data.message, 'warning');
+                }
+                else {
+                    setLogin({ ...loginInput, error_list: res.data.validation_errors });
+                }
             });
-        }); 
-        navigate('/')
+        });
     }
     return (
         <div id="layoutAuthentication">

@@ -1,10 +1,46 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
+import axios from 'axios';
+import swal from 'sweetalert';
+
 
 const Navbar = () => {
+    const navigate = useNavigate();
+    const logoutSubmit = (e) => {
+        e.preventDefault();
+        axios.post(`api/logout`).then(res => {
+            if (res.data.status === 200) {
+                localStorage.removeItem('auth_token');
+                localStorage.removeItem('auth_name');
+                swal('Success', res.data.message, 'success');
+                navigate('/')
+            }
+        });
+    }
+
+    var authButton = '';
+    if (!localStorage.getItem('auth_token')) {
+        authButton = (
+            < ul className="navbar-nav" >
+                <li className="nav-item">
+                    <Link className="nav-link active" aria-current="page" to="/login">Login</Link>
+                </li>
+                <li className="nav-item">
+                    <Link className="nav-link active" to="/register">Registation </Link>
+                </li>
+            </ul >
+        );
+    } else {
+        authButton = (
+            <li className="nav-item">
+                <button type="button" onClick={logoutSubmit} className="nav-link btn btn-danger btn-sm text-white">Logout</button>
+            </li>
+        );
+    }
+
     return (
         <div>
-
             <nav className="navbar navbar-expand-lg navbar-light bg-info">
                 <div className="container-fluid">
                     <Link className="navbar-brand" to="#">Navbar</Link>
@@ -34,12 +70,19 @@ const Navbar = () => {
                                 <Link className="nav-link disabled" to="#" tabindex="-1" aria-disabled="true">Disabled</Link>
                             </li>
                         </ul>
-                        <div style={{ marginRight: "220px" }}>
+                        <div style={{ marginRight: "120px" }}>
                             <form className="d-flex">
                                 <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
                                 <button className="btn btn-outline-success" type="submit">Search</button>
                             </form>
                         </div>
+
+                        <div style={{ marginRight: "30px" }}>
+                            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+                                {authButton}
+                            </ul>
+                        </div>
+
                         <div style={{ marginRight: "40px" }}>
                             <div className="nav-item dropdown">
                                 <Link className="nav-link dropdown-toggle" to="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
