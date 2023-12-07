@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import MasterLayout from '../../../layouts/admin/MasterLayout'
 import axios from 'axios';
-//  import { swal } from 'sweetalert';
+ import { swal } from 'sweetalert';
 import { Link } from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
 
@@ -15,13 +15,10 @@ const AddCategory = () => {
     error_list: [],
   });
   const handleInput = (e) => {
-    setCategory({ ...categoryInput, [e.target.name]: e.target.value });
-    
+    setCategory({ ...categoryInput, [e.target.name]: e.target.value }); 
   }
   const submitCategoryFrom = (e) => {
-  
     axios.post(`api/add-category`, data).then(res => {
-      
       if (res.data.status === 200) {
         swal("Success", res.data.message, "success");
         document.getElementById('categoryFrom').reset();
@@ -29,8 +26,6 @@ const AddCategory = () => {
       else if (res.data.status === 400) {
         setCategory({ ...categoryInput, error_list: res.data.errors });
       }
-  
-  
     });
    
     e.preventDefault();

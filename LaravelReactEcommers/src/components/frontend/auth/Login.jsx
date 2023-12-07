@@ -51,12 +51,12 @@ const Login = () => {
                                             <div className="form-floating mb-3">
                                                 <input name='email' onChange={handleInput} value={loginInput.email} className="form-control" id="inputEmail" type="email" placeholder="name@example.com" />
                                                 <label htmlFor="inputEmail">Email address</label>
-                                                <span>{loginInput.error_list.email}</span>
+                                                <span className='text-danger'>{loginInput.error_list.email}</span>
                                             </div>
                                             <div className="form-floating mb-3">
                                                 <input name='password' onChange={handleInput} value={loginInput.password} className="form-control" id="inputPassword" type="password" placeholder="Password" />
                                                 <label htmlFor="inputPassword">Password</label>
-                                                <span>{loginInput.error_list.password}</span>
+                                                <span className='text-danger'>{loginInput.error_list.password}</span>
                                             </div>
                                             <div className="form-check mb-3">
                                                 <input className="form-check-input" id="inputRememberPassword" type="checkbox" value="" />

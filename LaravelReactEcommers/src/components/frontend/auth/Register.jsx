@@ -59,21 +59,21 @@ const Register = () => {
                                                     <div className="mb-3 mb-md-0">
                                                         <label htmlFor="name"> Name : </label>
                                                         <input type="text" name='name' onChange={handleInput} value={registerInput.name} className="form-control" id="inputFirstName" placeholder='Type your name'/>
-                                                        <span>{registerInput.error_list.name}</span>
+                                                        <span className='text-danger'>{registerInput.error_list.name}</span>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div className=" mb-3">
                                                 <label htmlFor="inputEmail">Email address : </label>
                                                 <input type="email" name='email' onChange={handleInput} value={registerInput.email} className="form-control" id="inputEmail" placeholder='Email Address' />
-                                                <span>{registerInput.error_list.email}</span>
+                                                <span className='text-danger'>{registerInput.error_list.email}</span>
                                             </div>
                                             <div className="row mb-3">
                                                 <div className="col-md-12">
                                                     <div className=" mb-3 mb-md-0">
                                                         <label htmlFor="inputPassword">Password : </label>
                                                         <input type="password" name='password' onChange={handleInput} value={registerInput.password} className="form-control" id="inputPassword" placeholder='Password'/>
-                                                        <span>{registerInput.error_list.name}</span>
+                                                        <span className='text-danger'>{registerInput.error_list.password}</span>
                                                     </div>
                                                 </div>
                                                 {/* <div className="col-md-6">
