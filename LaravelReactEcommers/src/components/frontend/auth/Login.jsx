@@ -21,7 +21,7 @@ const Login = () => {
             email: loginInput.email,
             password: loginInput.password,
         }
-        axios.get('/sanctum/csrf-cookie').then(response => {
+        // axios.get('/sanctum/csrf-cookie').then(response => {
             axios.post(`api/login`, data).then(res => {
                 if (res.data.status === 200) {
                     localStorage.setItem('auth_token', res.data.token);
@@ -35,7 +35,7 @@ const Login = () => {
                     setLogin({ ...loginInput, error_list: res.data.validation_errors });
                 }
             });
-        });
+        // });
     }
     return (
         <div id="layoutAuthentication">

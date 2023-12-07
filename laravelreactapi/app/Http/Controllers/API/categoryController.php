@@ -18,6 +18,14 @@ class categoryController extends Controller
             'category'=>$category,
         ]);
     }
+
+    public function allCategory(){
+        $category = Category::where('status','0')->get();
+        return response()->json([
+            'status'=>200,
+            'category'=>$category,
+        ]);
+    }
    public function addCategory(Request $request){
         $validator = Validator::make($request->all(),[
             'categoryName'=>'Required',
