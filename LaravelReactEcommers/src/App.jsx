@@ -24,8 +24,11 @@ import Dashboard from "./components/admin/Dashboard";
 import AddCategory from "./components/admin/Category/Add_Category";
 import AllCategory from "./components/admin/Category/All_Category";
 import EditCategory from "./components/admin/Category/Edit_Category";
+
 import AddProduct from "./components/admin/Product/Add_Product";
 import AllProduct from "./components/admin/Product/All_product";
+import EditProduct from "./components/admin/Product/Edit_Product";
+
 
 
 
@@ -55,6 +58,7 @@ function App() {
 
           <Route path="/admin/AddProduct" element={< AddProduct />} />
           <Route path="/admin/AllProduct" element={< AllProduct />} />
+          <Route path="/admin/edit-product/:id" element={< EditProduct />} />
           
 
         </Routes>

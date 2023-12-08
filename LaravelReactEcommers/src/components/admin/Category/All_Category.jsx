@@ -10,6 +10,7 @@ const All_Category = () => {
     const [categorylist, setCategorylist] = useState([]);
 
     useEffect(() => {
+        document.title = "View Category"
         axios.get(`/api/all-category`).then(res => {
             // console.log(res.data.category)
             if (res.status === 200) {
@@ -53,7 +54,7 @@ const All_Category = () => {
                         <td>{items.status}</td>
                         <td>
                             <Link to={`/admin/edit-category/${items.id}`} className='btn btn-success btn-sm me-1'>Edit</Link>
-                            <button type='button' onClick={(e) => deleteCategory(e, items.id)} className='btn btn-success btn-sm'>Delete</button>
+                            <button type='button' onClick={(e) => deleteCategory(e, items.id)} className='btn btn-danger btn-sm'>Delete</button>
                         </td>
                     </tr>
                 )

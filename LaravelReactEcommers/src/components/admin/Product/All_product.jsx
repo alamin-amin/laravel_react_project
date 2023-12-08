@@ -8,8 +8,9 @@ const AllProduct = () => {
     const [viewProduct, setProduct] = useState([]);
 
     useEffect(() => {
-        axios.get(`/api/all-product`).then(res => {
+        document.title = "View Products";
 
+        axios.get(`/api/all-product`).then(res => {
             if (res.data.status === 200) {
                 setProduct(res.data.products);
                 setLoading(false);
@@ -31,7 +32,7 @@ const AllProduct = () => {
                     <td>{items.selling_price}</td>
                     <td>{items.status}</td>
                     <td>
-                        <Link to={`/admin/edit-category/${items.id}`} className='btn btn-success btn-sm me-1'>Edit</Link>
+                        <Link to={`/admin/edit-product/${items.id}`} className='btn btn-success btn-sm me-1'>Edit</Link>
                         <button type='button' onClick={(e) => deleteCategory(e, items.id)} className='btn btn-danger btn-sm'>Delete</button>
                     </td>
                 </tr>
