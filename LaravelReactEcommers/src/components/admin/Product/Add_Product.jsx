@@ -86,7 +86,7 @@ const AddProduct = () => {
             </h2>
             </div>
           </div>
-          <form onSubmit={productSubmitFrom} enctype="multipart/form-data">
+          <form onSubmit={productSubmitFrom}>
             <div className='row'>
               <div className="col-md-6 mb-2">
                 <label htmlFor="name">Category : </label>

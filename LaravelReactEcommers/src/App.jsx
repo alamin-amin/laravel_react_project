@@ -25,6 +25,8 @@ import AddCategory from "./components/admin/Category/Add_Category";
 import AllCategory from "./components/admin/Category/All_Category";
 import EditCategory from "./components/admin/Category/Edit_Category";
 import AddProduct from "./components/admin/Product/Add_Product";
+import AllProduct from "./components/admin/Product/All_product";
+
 
 
 
@@ -52,6 +54,7 @@ function App() {
 
 
           <Route path="/admin/AddProduct" element={< AddProduct />} />
+          <Route path="/admin/AllProduct" element={< AllProduct />} />
           
 
         </Routes>
