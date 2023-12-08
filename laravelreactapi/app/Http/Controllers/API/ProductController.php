@@ -18,8 +18,9 @@ class ProductController extends Controller
             'selling_price'=>'required',
             'buying_price'=>'required',
             'quantity'=>'required',
+            'image'=>'required',
             'status'=>'required',
-            'image'=>'required|image|mimes:jpeg,png,jpg|max:2048',
+            // 'image'=>'required|image|mimes:jpeg,png,jpg|max:2048',
         ]);
         if($validator->fails()){
             return response()->json([
@@ -35,8 +36,6 @@ class ProductController extends Controller
             $product->selling_price = $request->input('selling_price');
             $product->buying_price = $request->input('buying_price');
             $product->quantity = $request->input('quantity');
-            $product->status = $request->input('status') == true ? '1' : '0';
-           
             if($request->hasFile('image')){
                 $file = $request->file('image');
                 $extention = $file->getClientOriginalExtension();
@@ -45,6 +44,7 @@ class ProductController extends Controller
                 $product->image ='uploads/product/'.$fileName;
             }
             $product->save();
+            $product->status = $request->input('status') == true ? '1' : '0';
 
             return response()->json([
                 'status'=>200,

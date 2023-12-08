@@ -5,7 +5,7 @@ import axios from 'axios';
 import { swal } from 'sweetalert';
 
 const AddProduct = () => {
-  const [categorylist, setCategory] = useState([]);
+  const [categorylist, setCategorylist] = useState([]);
   const [productInput, setProduct] = useState({
     category_id: '',
     product_name: '',
@@ -25,7 +25,6 @@ const AddProduct = () => {
     setProduct({ ...productInput, [e.target.name]: e.target.value });
   }
 
-
   const handleImage = (e) => {
     setPicture({ image: e.target.files[0] });
   }
@@ -33,37 +32,48 @@ const AddProduct = () => {
   useEffect(() => {
     axios.get(`/api/all-category`).then(res => {
       if (res.data.status === 200) {
-        setCategory(res.data.category);
+        setCategorylist(res.data.category);
       }
     });
-  })
+  }, []);
 
 
   const productSubmitFrom = (e) => {
     e.preventDefault();
+    // const formData = new formData();
+    // formData.append('image', picture.image);
+    // formData.append('category_id', productInput.category_id);
+    // formData.append('product_name', productInput.product_name);
+    // formData.append('slug', productInput.slug);
+    // formData.append('brand', productInput.brand);
+    // formData.append('selling_price', productInput.selling_price);
+    // formData.append('buying_price', productInput.buying_price);
+    // formData.append('quantity', productInput.quantity);
+    // formData.append('status', productInput.status);
 
-    const fromData = new fromData();
-    fromData.append('image', picture.image);
-    fromData.append('category_id', productInput.category_id);
-    fromData.append('product_name', productInput.product_name);
-    fromData.append('slug', productInput.slug);
-    fromData.append('brand', productInput.brand);
-    fromData.append('selling_price', productInput.selling_price);
-    fromData.append('buying_price', productInput.buying_price);
-    fromData.append('quantity', productInput.quantity);
-    fromData.append('status', productInput.status);
+    const formData = {
+      category_id: productInput.category_id,
+      product_name: productInput.product_name,
+      slug: productInput.slug,
+      brand: productInput.brand,
+      selling_price: productInput.selling_price,
+      buying_price: productInput.buying_price,
+      quantity: productInput.quantity,
+      image: picture.image,
+      status: productInput.status,
+    }
 
-
-    axios.post(`api/add-product`, fromData).then(res => {
+    axios.post(`api/add-product`, formData).then(res => {
       if (res.data.status === 200) {
         swal("Success", res.data.message, "success");
         setError([]);
       }
       else if (res.data.status === 422) {
-        swal("All fields afe mandetory", "", "error");
+        swal("All fields are mandetory", "", "error");
         setError(res.data.errors);
       }
     });
+
   }
 
   return (
@@ -76,7 +86,7 @@ const AddProduct = () => {
             </h2>
             </div>
           </div>
-          <form onSubmit={productSubmitFrom} encType='multipart/form-data'>
+          <form onSubmit={productSubmitFrom} enctype="multipart/form-data">
             <div className='row'>
               <div className="col-md-6 mb-2">
                 <label htmlFor="name">Category : </label>
@@ -99,27 +109,33 @@ const AddProduct = () => {
               </div>
               <div className="col-md-6 mb-3 ">
                 <label htmlFor="slug" className="form-label">Slug</label>
-                <input type="text" name='slug' onChange={handleInput} value={productInput.slug} className="form-control" id="slug" aria-describedby="emailHelp" placeholder='Slug' />
+                <input type="text" name='slug' onChange={handleInput} value={productInput.slug} className="form-control" aria-describedby="emailHelp" placeholder='Slug' />
+                <span className='text-danger'>{errorlist.slug}</span>
               </div>
               <div className="col-md-6 mb-3 ">
                 <label htmlFor="brand" className="form-label">Brand Name : </label>
                 <input type="text" name='brand' onChange={handleInput} value={productInput.brand} className="form-control" aria-describedby="emailHelp" placeholder='Brabd' />
+                <span className='text-danger'>{errorlist.brand}</span>
               </div>
               <div className="col-md-6 mb-3 ">
                 <label htmlFor="selling_price" className="form-label">Selling Price</label>
                 <input type="text" name='selling_price' onChange={handleInput} value={productInput.selling_price} className="form-control" aria-describedby="emailHelp" placeholder='Selling Price' />
+                <span className='text-danger'>{errorlist.selling_price}</span>
               </div>
               <div className="col-md-6 mb-3 ">
                 <label htmlFor="buying_price" className="form-label">Buying Price</label>
                 <input type="text" name='buying_price' onChange={handleInput} value={productInput.buying_price} className="form-control" aria-describedby="emailHelp" placeholder='Buying Price' />
+                <span className='text-danger'>{errorlist.buying_price}</span>
               </div>
               <div className="col-md-6 mb-3 ">
-                <label htmlFor="quantity" className="form-label">Quantity</label>
+                <label htmlFor="uantity" className="form-label">Quantity</label>
                 <input type="text" name='quantity' onChange={handleInput} value={productInput.quantity} className="form-control" aria-describedby="emailHelp" placeholder='Quantity' />
+                <span className='text-danger'>{errorlist.quantity}</span>
               </div>
               <div className="col-md-6 mb-3 ">
                 <label htmlFor="image" className="form-label">Image</label>
-                <input type="file" name='image' onChange={handleImage} className="form-control" aria-describedby="emailHelp" placeholder='Image' />
+                <input type="file" name='image' onChange={handleImage} className="form-control" />
+                <span className='text-danger'>{errorlist.image}</span>
               </div>
               <div className="col-md-6">
                 <div className="mb-2">
@@ -128,6 +144,7 @@ const AddProduct = () => {
                     <option value="1">Active</option>
                     <option value="0">Block</option>
                   </select>
+                  <span className='text-danger'>{errorlist.status}</span>
                 </div>
               </div>
               <div className=" mb-3">
