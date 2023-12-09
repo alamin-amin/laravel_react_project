@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useParams } from 'react'
 import MasterLayout from '../../../layouts/admin/MasterLayout'
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { swal } from 'sweetalert';
 
-const EditProduct = () => {
+const EditProduct = (props) => {
+  // const params = useParams();
   const [categorylist, setCategorylist] = useState([]);
   const [productInput, setProduct] = useState({
     category_id: '',
@@ -35,6 +36,14 @@ const EditProduct = () => {
         setCategorylist(res.data.category);
       }
     });
+
+    const product_id = props.match.params.id;
+    axios.get (`/api/edit-product/${product_id}`).then(res=>{
+      if (res.data.status === 200) {
+        console.log(res.data.product);
+      }
+    })
+
   }, []);
 
 

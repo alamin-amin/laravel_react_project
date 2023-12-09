@@ -18,6 +18,26 @@ const AllProduct = () => {
         });
     }, []);
 
+
+
+    const deleteProduct = (e, id) => {
+        const thisClicked = e.currentTarget;
+        thisClicked.innerText = "Deleting";
+
+        axios.delete(`api/delete-product/${id}`).then(res => {
+            if (res.data.status === 200) {
+                swal('Success', res.data.message, 'success');
+                thisClicked.closest("tr").remove();
+
+            }
+            else if (res.data.status === 404) {
+                swal('Success', res.data.message, 'success');
+                thisClicked.innerText = "Delete";
+            }
+        });
+        e.preventDefault();
+    }
+
     var viewProductData = '';
     if (loading) {
         return <h2 className='text-center pt-5'>Products is comming</h2>
@@ -33,7 +53,7 @@ const AllProduct = () => {
                     <td>{items.status}</td>
                     <td>
                         <Link to={`/admin/edit-product/${items.id}`} className='btn btn-success btn-sm me-1'>Edit</Link>
-                        <button type='button' onClick={(e) => deleteCategory(e, items.id)} className='btn btn-danger btn-sm'>Delete</button>
+                        <button type='button' onClick={(e) => deleteProduct(e, items.id)} className='btn btn-danger btn-sm'>Delete</button>
                     </td>
                 </tr>
             )

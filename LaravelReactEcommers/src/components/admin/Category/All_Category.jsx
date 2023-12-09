@@ -37,7 +37,6 @@ const All_Category = () => {
             }
         });
         e.preventDefault();
-
     }
 
     var viewCategory = '';
