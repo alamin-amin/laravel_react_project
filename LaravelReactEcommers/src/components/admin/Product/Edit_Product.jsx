@@ -128,10 +128,19 @@ const EditProduct = () => {
                 <span className='text-danger'>{errorlist.buying_price}</span>
               </div>
               <div className="col-md-6 mb-3 ">
-                <label htmlFor="uantity" className="form-label">Quantity</label>
+                <label htmlFor="quantity" className="form-label">Quantity</label>
                 <input type="text" name='quantity' onChange={handleInput} value={productInput.quantity} className="form-control" aria-describedby="emailHelp" placeholder='Quantity' />
                 <span className='text-danger'>{errorlist.quantity}</span>
               </div>
+
+
+              <div className="col-md-6 mb-3 ">
+                <label htmlFor="quantity" className="form-label">Quantity</label>
+                <input type="text" name='quantity' onChange={handleInput} value={productInput.quantity} className="form-control" aria-describedby="emailHelp" placeholder='Quantity' />
+                <span className='text-danger'>{errorlist.quantity}</span>
+              </div>
+
+              
               <div className="col-md-6 mb-3 ">
                 <label htmlFor="image" className="form-label">Image</label>
                 <input type="file" name='image' onChange={handleImage} className="form-control" />

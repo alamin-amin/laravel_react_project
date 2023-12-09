@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
 import MasterLayout from '../../../layouts/admin/MasterLayout'
-// import { swal } from 'sweetalert';
+ import { swal } from 'sweetalert';
 
 function EditCategory(props) {
     const [categoryInput, setCategory] = useState([]);

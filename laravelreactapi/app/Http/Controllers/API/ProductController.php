@@ -17,6 +17,8 @@ class ProductController extends Controller
             'products'=>$products
         ]);
     }
+
+
     public function storeProduct(Request $request){
         $validator = Validator::make($request->all(), [
             'category_id'=>'required',
@@ -52,7 +54,7 @@ class ProductController extends Controller
                 $product->image ='uploads/product/'.$fileName;
             }
             $product->save();
-            $product->status = $request->input('status') == true ? '1' : '0';
+            $product->status = $request->input('status');
 
             return response()->json([
                 'status'=>200,

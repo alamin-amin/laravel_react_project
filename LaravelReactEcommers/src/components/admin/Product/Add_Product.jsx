@@ -37,8 +37,7 @@ const AddProduct = () => {
     });
   }, []);
 
-
-  const productSubmitFrom = (e) => {
+  const productSubmitFrom = (e) => {                               
     e.preventDefault();
     // const formData = new formData();
     // formData.append('image', picture.image);
@@ -64,16 +63,16 @@ const AddProduct = () => {
     }
 
     axios.post(`api/add-product`, formData).then(res => {
-      if (res.data.status === 200) {
-        swal("Success", res.data.message, "success");
-        setError([]);
-      }
-      else if (res.data.status === 422) {
-        swal("All fields are mandetory", "", "error");
-        setError(res.data.errors);
-      }
+      console.log(res.data);
+      // if (res.data.status === 200) {
+      //   swal("Success", res.data.message, "success");
+      //   setError([]);
+      // }
+      // else if (res.data.status === 422) {
+      //   swal("All fields are mandetory", "", "error");
+      //   setError(res.data.errors);
+      // }
     });
-
   }
 
   return (
@@ -86,7 +85,7 @@ const AddProduct = () => {
             </h2>
             </div>
           </div>
-          <form onSubmit={productSubmitFrom}>
+          <form onSubmit={productSubmitFrom} encType="multipart/form-data">
             <div className='row'>
               <div className="col-md-6 mb-2">
                 <label htmlFor="name">Category : </label>
