@@ -19,6 +19,7 @@ import Register from "./components/frontend/auth/Register";
 import FrontLayout from "./layouts/frontend/FrontLayout";
 import Home from "./components/frontend/Home";
 
+
 //backend 
 import Dashboard from "./components/admin/Dashboard";
 import AddCategory from "./components/admin/Category/Add_Category";
@@ -28,6 +29,7 @@ import EditCategory from "./components/admin/Category/Edit_Category";
 import AddProduct from "./components/admin/Product/Add_Product";
 import AllProduct from "./components/admin/Product/All_product";
 import EditProduct from "./components/admin/Product/Edit_Product";
+
 
 
 

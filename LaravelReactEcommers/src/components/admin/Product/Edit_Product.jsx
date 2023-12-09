@@ -37,7 +37,7 @@ const EditProduct = (props) => {
       }
     });
 
-    const product_id = props.match.params.id;
+    const product_id = props.match.params.id
     axios.get (`/api/edit-product/${product_id}`).then(res=>{
       if (res.data.status === 200) {
         console.log(res.data.product);

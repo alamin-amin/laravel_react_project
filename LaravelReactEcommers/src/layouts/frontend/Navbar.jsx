@@ -53,7 +53,10 @@ const Navbar = () => {
                                 <Link className="nav-link active" aria-current="page" to="/frontHome">Home</Link>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link" to="#">Link </Link>
+                                <Link className="nav-link" to="#">Contact </Link>
+                            </li>
+                            <li className="nav-item">
+                                <Link className="nav-link" to="#">About</Link>
                             </li>
                             <li className="nav-item dropdown">
                                 <Link className="nav-link dropdown-toggle" to="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -67,7 +70,7 @@ const Navbar = () => {
                                 </ul>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link disabled" to="#" tabindex="-1" aria-disabled="true">Disabled</Link>
+                                <Link className="nav-link" to="/product-card" tabindex="-1" aria-disabled="true">Category</Link>
                             </li>
                         </ul>
                         <div style={{ marginRight: "120px" }}>
