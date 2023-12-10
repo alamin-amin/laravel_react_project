@@ -1,10 +1,18 @@
 import React from 'react'
+import Navbar from '../../layouts/frontend/Navbar'
+import { Master } from './Master'
+import { Input } from './input'
+
+
 
 const Category = () => {
   return (
-    <div className='row'>
-      <h1>bjulkhoiujoip;</h1>
-    </div>
+   <>
+  <Master >
+    <h1>this is Category</h1>
+    <Input />
+    </Master>    
+   </>
   )
 }
 

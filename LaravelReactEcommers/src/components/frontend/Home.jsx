@@ -1,18 +1,13 @@
 import React from 'react'
+import FrontLayout from '../../layouts/frontend/FrontLayout'
+import Contact from './Contact'
+
+
+
 const Home = () => {
-
-
   return (
-    <>
-
-      <div>Home page</div>
-      <div className='bg-red' style={{ backgroundColor:'green',width:'49px' }}>
-        <h1>content</h1>
-        <div>
-          ghiuygu
-        </div>
-      </div>
-    </>
+    <FrontLayout>
+    </FrontLayout>
   )
 }
 

@@ -1,14 +1,11 @@
 import React from 'react'
 
-
-
 const ProductCard = () => {
   return (
     <div>
+   
+        <h3>product card</h3>
     
-        <h3>fdgryhrthrthb4etetetetetetet</h3>
-      
-      
     </div>
   )
 }
