@@ -7,12 +7,15 @@ import { Input } from './input'
 
 const Category = () => {
   return (
-   <>
-  <Master >
-    <h1>this is Category</h1>
-    <Input />
-    </Master>    
-   </>
+    <>
+      <Master >
+        <div className='card-body'>
+          <div className=''>
+            Category page
+          </div>
+        </div>
+      </Master>
+    </>
   )
 }
 

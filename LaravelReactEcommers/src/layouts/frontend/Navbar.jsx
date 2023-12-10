@@ -39,6 +39,9 @@ const Navbar = () => {
         );
     }
 
+    // let bgImage ={
+    //     backgroundColor:'blue'
+    // }
     return (
         <div>
             <nav className="navbar navbar-expand-lg navbar-light bg-info">

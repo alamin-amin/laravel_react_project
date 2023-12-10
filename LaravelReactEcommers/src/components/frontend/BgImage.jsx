@@ -1,13 +1,16 @@
 import React from 'react'
 
 const BgImage = () => {
-  return (
-    <div>
-       
-            <h1> Background images</h1>
-       
-     </div>
-  )
+ 
+  let bannrImg = {
+    width :'100%',
+    height :'500px',
+}
+return (
+<div>
+    <img  style={bannrImg} src="src/assets/frontend/bgimage.webp" alt=""/>
+</div>
+)
 }
 
 export default BgImage
