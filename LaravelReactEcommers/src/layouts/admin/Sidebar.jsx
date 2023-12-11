@@ -8,7 +8,7 @@ const Sidebar = () => {
                 <div className="nav sidenavAccordionPages">
 
                     <nav className="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
-                        <Link className="nav-link" to="/">
+                        <Link className="nav-link" to="/dashboard">
                             <div className="sb-nav-link-icon"><i className="fas fa-tachometer-alt"></i></div>
                             Dashboard
                         </Link>

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import MasterLayout from '../../../layouts/admin/MasterLayout'
 import axios from 'axios';
- import { swal } from 'sweetalert';
+import { swal } from 'sweetalert';
 import { Link } from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
 
