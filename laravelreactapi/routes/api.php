@@ -3,6 +3,7 @@
 
 use App\Http\Controllers\API\AuthController;
 use App\Http\Controllers\API\categoryController;
+use App\Http\Controllers\API\FrontendController;
 use App\Http\Controllers\API\ProductController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -30,6 +31,12 @@ Route::post('/add-product',[ProductController::class,'storeProduct']);
 Route::get('/all-product',[ProductController::class,'index']);
 Route::get('edit-product/{id}',[ProductController::class,'edit']);
 Route::delete('/delete-product/{id}',[ProductController::class,'destroy']);
+
+
+Route::get('getCategory',[FrontendController::class,'getCategory']);
+
+
+
 
 // Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 //     return $request->user();

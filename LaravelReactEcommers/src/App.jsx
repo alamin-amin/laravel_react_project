@@ -19,7 +19,7 @@ import Register from "./components/frontend/auth/Register";
 import FrontLayout from "./layouts/frontend/FrontLayout";
 import Home from "./components/frontend/Home";
 
-
+import ViewCategory from "./components/frontend/collections/ViewCategory";
 
 
 //backend 
@@ -36,14 +36,6 @@ import About from "./components/frontend/About";
 
 
 
-
-
-
-
-
-
-
-
 function App() {
   return (
     <div className="App">
@@ -56,6 +48,8 @@ function App() {
           <Route path="/frontHome" element={<Home />} />
           <Route path="/Category" element={<Category />} />
           <Route path="/About" element={<About />} />
+          <Route path="/View-category" element={<ViewCategory />} />
+          
           
 
 
