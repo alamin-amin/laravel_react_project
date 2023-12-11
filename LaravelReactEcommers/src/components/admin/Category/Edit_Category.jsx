@@ -10,7 +10,7 @@ function EditCategory(props) {
         axios.get(`/api/edit-category/${category_id}`).then(res => {
             if (res.status === 200) {
                 setCategory(res.data.category);
-            } else if (res.status === 400) {
+            } else if (res.status === 404) {
                 swal("Error", res.data.message, "error");
             }
         });

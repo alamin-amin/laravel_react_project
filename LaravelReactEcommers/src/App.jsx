@@ -20,6 +20,7 @@ import FrontLayout from "./layouts/frontend/FrontLayout";
 import Home from "./components/frontend/Home";
 
 import ViewCategory from "./components/frontend/collections/ViewCategory";
+import ViewProduct from "./components/frontend/collections/ViewProduct";
 
 
 //backend 
@@ -36,6 +37,7 @@ import About from "./components/frontend/About";
 
 
 
+
 function App() {
   return (
     <div className="App">
@@ -49,6 +51,7 @@ function App() {
           <Route path="/Category" element={<Category />} />
           <Route path="/About" element={<About />} />
           <Route path="/View-category" element={<ViewCategory />} />
+          <Route path="/View-product/:slug" element={<ViewProduct />} />
           
           
 

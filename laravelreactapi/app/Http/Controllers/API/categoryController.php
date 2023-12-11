@@ -64,7 +64,7 @@ class categoryController extends Controller
     
         }else{
             return response()->json([
-                'status'=>400,
+                'status'=>404,
                 'message'=>'Category not found',
             ]);
         }
