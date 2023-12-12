@@ -37,30 +37,30 @@ const AddProduct = () => {
     });
   }, []);
 
-  const productSubmitFrom = (e) => {                               
+  const productSubmitFrom = (e) => {
     e.preventDefault();
-    // const formData = new formData();
-    // formData.append('image', picture.image);
-    // formData.append('category_id', productInput.category_id);
-    // formData.append('product_name', productInput.product_name);
-    // formData.append('slug', productInput.slug);
-    // formData.append('brand', productInput.brand);
-    // formData.append('selling_price', productInput.selling_price);
-    // formData.append('buying_price', productInput.buying_price);
-    // formData.append('quantity', productInput.quantity);
-    // formData.append('status', productInput.status);
+    const formData = new formData();
+    formData.append('image', picture.image);
+    formData.append('category_id', productInput.category_id);
+    formData.append('product_name', productInput.product_name);
+    formData.append('slug', productInput.slug);
+    formData.append('brand', productInput.brand);
+    formData.append('selling_price', productInput.selling_price);
+    formData.append('buying_price', productInput.buying_price);
+    formData.append('quantity', productInput.quantity);
+    formData.append('status', productInput.status);
 
-    const formData = {
-      category_id: productInput.category_id,
-      product_name: productInput.product_name,
-      slug: productInput.slug,
-      brand: productInput.brand,
-      selling_price: productInput.selling_price,
-      buying_price: productInput.buying_price,
-      quantity: productInput.quantity,
-      image: picture.image,
-      status: productInput.status,
-    }
+    // const formData = {
+    //   category_id: productInput.category_id,
+    //   product_name: productInput.product_name,
+    //   slug: productInput.slug,
+    //   brand: productInput.brand,
+    //   selling_price: productInput.selling_price,
+    //   buying_price: productInput.buying_price,
+    //   quantity: productInput.quantity,
+    //   image: picture.image,
+    //   status: productInput.status,
+    // }
 
     axios.post(`api/add-product`, formData).then(res => {
       console.log(res.data);
@@ -68,10 +68,10 @@ const AddProduct = () => {
         swal("Success", res.data.message, "success");
         setError([]);
       }
-      // else if (res.data.status === 422) {
-      //   swal("All fields are mandetory", "", "error");
-      //   setError(res.data.errors);
-      // }
+      else if (res.data.status === 422) {
+        swal("All fields are mandetory");
+        setError(res.data.errors);
+      }
     });
   }
 
@@ -113,7 +113,7 @@ const AddProduct = () => {
               </div>
               <div className="col-md-6 mb-3 ">
                 <label htmlFor="brand" className="form-label">Brand Name : </label>
-                <input type="text" name='brand' onChange={handleInput} value={productInput.brand} className="form-control" aria-describedby="emailHelp" placeholder='Brabd' />
+                <input type="text" name='brand' onChange={handleInput} value={productInput.brand} className="form-control" aria-describedby="emailHelp" placeholder='Brand' />
                 <span className='text-danger'>{errorlist.brand}</span>
               </div>
               <div className="col-md-6 mb-3 ">

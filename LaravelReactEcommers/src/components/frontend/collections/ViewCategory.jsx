@@ -32,7 +32,6 @@ const ViewCategory = () => {
                             <Link to={`collections/${item.slug}`}>
                                 <h5>{item.categoryName}</h5>
                             </Link>
-
                         </div>
                     </div>
                 </div>
