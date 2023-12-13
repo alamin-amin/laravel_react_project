@@ -3,8 +3,10 @@ import MasterLayout from '../../../layouts/admin/MasterLayout'
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { swal } from 'sweetalert';
+import { useNavigate } from "react-router-dom";
 
 const AddProduct = () => {
+  const navigate = useNavigate();
   const [categorylist, setCategorylist] = useState([]);
   const [productInput, setProduct] = useState({
     category_id: '',
@@ -17,7 +19,7 @@ const AddProduct = () => {
     status: '',
   });
 
-  const [picture, setPicture] = useState([]);
+  const [picture, setPicture] = useState("");
   const [errorlist, setError] = useState([]);
 
   const handleInput = (e) => {
@@ -39,7 +41,7 @@ const AddProduct = () => {
 
   const productSubmitFrom = (e) => {
     e.preventDefault();
-    const formData = new formData();
+    const formData = new FormData();
     formData.append('image', picture.image);
     formData.append('category_id', productInput.category_id);
     formData.append('product_name', productInput.product_name);
@@ -62,14 +64,20 @@ const AddProduct = () => {
     //   status: productInput.status,
     // }
 
-    axios.post(`api/add-product`, formData).then(res => {
-      console.log(res.data);
+    axios.post(`api/add-product`, formData,{
+      headers: {
+        "Content-Type": "multipart/form-data"
+      }
+    }).then(res => {
+      navigate('/admin/AllProduct');
+      // console.log(res.data);
       if (res.data.status === 200) {
         swal("Success", res.data.message, "success");
+       
         setError([]);
       }
       else if (res.data.status === 422) {
-        swal("All fields are mandetory");
+        // swal("All fields are mandetory");
         setError(res.data.errors);
       }
     });

@@ -48,7 +48,7 @@ const AllProduct = () => {
                     <td>{items.id}</td>
                     <td>{items.product_name}</td>
                     <td><img src={`http://127.0.0.1:8000/${items.image}`} width="50px" alt={items.name} /></td>
-                    <td>{items.category_id}</td>
+                    <td>{items.category.categoryName}</td>
                     <td>{items.selling_price}</td>
                     <td>{items.status}</td>
                     <td>

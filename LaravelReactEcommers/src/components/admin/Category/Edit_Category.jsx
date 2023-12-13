@@ -1,20 +1,22 @@
 import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import MasterLayout from '../../../layouts/admin/MasterLayout'
  import { swal } from 'sweetalert';
+import  axios  from 'axios';
 
-function EditCategory(props) {
+function EditCategory() {
+   const {id} = useParams();
     const [categoryInput, setCategory] = useState([]);
     useEffect(() => {
-        const category_id = props.match.params.id;
-        axios.get(`/api/edit-category/${category_id}`).then(res => {
+        // const category_id = props.match.params.id;
+        axios.get(`/api/edit-category/${id}`).then(res => {
             if (res.status === 200) {
                 setCategory(res.data.category);
             } else if (res.status === 404) {
                 swal("Error", res.data.message, "error");
             }
         });
-    }, [props.match.params.id]);
+    }, [id]);
 
     const handleInput = (e) => {
         e.persist();

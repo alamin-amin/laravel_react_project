@@ -5,7 +5,6 @@ use App\Http\Controllers\API\AuthController;
 use App\Http\Controllers\API\categoryController;
 use App\Http\Controllers\API\FrontendController;
 use App\Http\Controllers\API\ProductController;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 
@@ -22,7 +21,9 @@ Route::middleware(['auth:sanctum'])->group( function() {
 
 Route::post('/add-category',[categoryController::class,'addCategory']);
 Route::get('/all-category',[categoryController::class,'index']);
+
 Route::get('/edit-category/{id}',[categoryController::class,'editCategory']);
+
 Route::delete('/delete-category/{id}',[categoryController::class,'destroy']);
 Route::get('/all-category',[categoryController::class,'allCategory']);
 

@@ -28,9 +28,9 @@ class ProductController extends Controller
             'selling_price'=>'required',
             'buying_price'=>'required',
             'quantity'=>'required',
-            // 'image'=>'required',
+          'image'=>'required',
             'status'=>'required',
-            //  'image'=>'required|image|mimes:jpeg,png,jpg|max:2048',
+            //   'image'=>'required|image|mimes:jpeg,png,jpg|max:2048',
         ]);
         if($validator->fails()){
             return response()->json([
@@ -62,6 +62,8 @@ class ProductController extends Controller
             ]);
         }
     }
+
+    
 
     public function edit($id){
         $product = Product::find($id);{
