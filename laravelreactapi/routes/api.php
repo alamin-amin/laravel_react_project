@@ -35,6 +35,7 @@ Route::delete('/delete-product/{id}',[ProductController::class,'destroy']);
 
 
 Route::get('getCategory',[FrontendController::class,'getCategory']);
+Route::get('fetchproduct/{slug}',[FrontendController::class,'product']);
 
 
 

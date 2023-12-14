@@ -50,8 +50,8 @@ function App() {
           <Route path="/frontHome" element={<Home />} />
           <Route path="/Category" element={<Category />} />
           <Route path="/About" element={<About />} />
-          <Route path="/View-category" element={<ViewCategory />} />
-          <Route path="/View-product/:slug" element={<ViewProduct />} />
+          <Route path="/collections" element={<ViewCategory />} />
+          <Route path="/collections/:slug" element={<ViewProduct />} />
           
           
 
