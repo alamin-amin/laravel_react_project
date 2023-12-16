@@ -106,6 +106,40 @@ const ProductCard = () => {
             </div>
           </motion.div>
         </div>
+        <div className=''>
+          <motion.div whileHover={{ scale: 1.1 }} className="card" style={{ width: '27rem', heiggt: '200px' }}>
+            <img src="src/assets/frontend/hp.webp" className="card-img-top" alt="..." />
+            <div className="card-body">
+              <h3 className="card-title">Chicken Fajitas</h3>
+              <p className="card-text">cream</p>
+              <div className='mb-2 text-success text-end fs-4'>
+                <i className='fas fa-star' />
+                <i className='fas fa-star' />
+                <i className='fas fa-star' />
+                <i className='fas fa-star-half-alt' />
+                <i className='fas fa-star-half-alt' />
+              </div>
+              <a href="#" className="btn btn-warning pt-2 fs-3" style={{ width: '100%', height: '62px' }}> <i className='fas fa-shopping-cart pe-2' />Add TO BAG</a>
+            </div>
+          </motion.div>
+        </div>
+        <div className=''>
+          <motion.div whileHover={{ scale: 1.1 }} className="card" style={{ width: '27rem', heiggt: '200px' }}>
+            <img src="src/assets/frontend/jew.webp" className="card-img-top" alt="..." />
+            <div className="card-body">
+              <h3 className="card-title">Chicken </h3>
+              <p className="card-text">cream</p>
+              <div className='mb-2 text-success text-end fs-4'>
+                <i className='fas fa-star' />
+                <i className='fas fa-star' />
+                <i className='fas fa-star' />
+                <i className='fas fa-star-half-alt' />
+                <i className='fas fa-star-half-alt' />
+              </div>
+              <a href="#" className="btn btn-warning pt-2 fs-3" style={{ width: '100%', height: '62px' }}> <i className='fas fa-shopping-cart pe-2' />Add TO BAG</a>
+            </div>
+          </motion.div>
+        </div>
 
       </div>
     </div>
