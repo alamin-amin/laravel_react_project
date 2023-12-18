@@ -1,5 +1,5 @@
 import React from 'react'
-import FrontLayout from '../../layouts/frontend/FrontLayout'
+import FrontLayout from '../../layouts/frontend/FrontLayout';
 import  {Input}  from './input'
 import { Master } from './Master'
 

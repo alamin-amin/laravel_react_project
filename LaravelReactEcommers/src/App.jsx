@@ -21,6 +21,7 @@ import Home from "./components/frontend/Home";
 
 import ViewCategory from "./components/frontend/collections/ViewCategory";
 import ViewProduct from "./components/frontend/collections/ViewProduct";
+import ProductDetails from "./components/frontend/collections/ProductDetails";
 
 
 //backend 
@@ -36,8 +37,6 @@ import Category from "./components/frontend/Category";
 import About from "./components/frontend/About";
 
 
-
-
 function App() {
   return (
     <div className="App">
@@ -50,11 +49,13 @@ function App() {
           <Route path="/frontHome" element={<Home />} />
           <Route path="/Category" element={<Category />} />
           <Route path="/About" element={<About />} />
+
+          {/* //collections */}
           <Route path="/collections" element={<ViewCategory />} />
           <Route path="/collections/:slug" element={<ViewProduct />} />
+          <Route path="/product-details" element={<ProductDetails />} />
           
           
-
 
            {/* admin routes */}
           <Route path="/dashboard" element={<Dashboard />} />

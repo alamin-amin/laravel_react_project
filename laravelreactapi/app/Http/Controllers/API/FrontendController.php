@@ -44,10 +44,5 @@ class FrontendController extends Controller
                 'message'=>"no product found"
             ]);
         }
-
-
-       
     }
-
-
 }

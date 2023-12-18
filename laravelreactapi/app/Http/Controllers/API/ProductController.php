@@ -9,7 +9,6 @@ use Illuminate\Support\Facades\Validator;
 
 class ProductController extends Controller
 {
-
     public function index(){
         $products = Product::all();
         return response()->json([
@@ -28,7 +27,7 @@ class ProductController extends Controller
             'selling_price'=>'required',
             'buying_price'=>'required',
             'quantity'=>'required',
-          'image'=>'required',
+            'image'=>'required',
             'status'=>'required',
             //   'image'=>'required|image|mimes:jpeg,png,jpg|max:2048',
         ]);
