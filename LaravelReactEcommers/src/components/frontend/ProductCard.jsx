@@ -25,7 +25,7 @@ const AllProduct = () => {
     viewProductData = viewProduct.map((items) => {
       return (
        <div className='row'>
-         <div className="card col-3" style={{ width:"18rem" }}>
+         <div className="card col-6 mb-3" style={{ width:"28rem" }}>
           <img src={`http://127.0.0.1:8000/${items.image}`} />
             <div className="card-body">
               <h5 className="text-center card-title">{items.product_name}</h5>
@@ -39,7 +39,7 @@ const AllProduct = () => {
 
   return (
     <div className="row">
-      <div className="col-3 mb-2">
+      <div className="col-6 mt-3">
         {viewProductData}
       </div>
     </div>

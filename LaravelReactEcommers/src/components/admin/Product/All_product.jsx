@@ -19,7 +19,6 @@ const AllProduct = () => {
     }, []);
 
 
-
     const deleteProduct = (e, id) => {
         const thisClicked = e.currentTarget;
         thisClicked.innerText = "Deleting";

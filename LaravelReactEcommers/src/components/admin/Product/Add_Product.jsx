@@ -89,7 +89,7 @@ const AddProduct = () => {
         <div className='container-fluid'>
           <div className="p-3">
             <div><h2>Add Product
-              <Link to="/admin/allCategory" className='btn btn-primary float-end'>All Product</Link>
+              <Link to="/admin/AllProduct" className='btn btn-primary float-end'>All Product</Link>
             </h2>
             </div>
           </div>
