@@ -36,8 +36,8 @@ const ProductDetails = () => {
     const handleAddToCart = (e) => {
         e.preventDefault();
         const data = {
-            detailsProduct_id: detailsProduct.id,
-            detailsProduct_quantity: quantity,
+            product_id: detailsProduct.id,
+            product_quantity: quantity,
         }
         axios.post(`/api/add-to-cart/`, data).then(res => {
             if (res.data.status === 201) {
@@ -45,14 +45,12 @@ const ProductDetails = () => {
             } else if (res.data.status === 409) {
                 swal("Warning", res.data.message, "warning");
             } else if (res.data.status === 401) {
-                swal("Error", res.data.message, "error");
+                swal("Success", res.data.message, "success");
+            } else if (res.data.status === 404) {
+                swal("Warning", res.data.message, "warning");
             }
         });
     }
-
-
-
-
 
     return (
         <>
