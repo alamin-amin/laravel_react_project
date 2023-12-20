@@ -53,7 +53,7 @@ function App() {
           {/* //collections */}
           <Route path="/collections" element={<ViewCategory />} />
           <Route path="/collections/:slug" element={<ViewProduct />} />
-          <Route path="/product-details" element={<ProductDetails />} />
+          <Route path="/product-details/:id" element={<ProductDetails />} />
           
           
 

@@ -30,7 +30,7 @@ const AllProduct = () => {
             <div className="card-body">
               <h5 className="text-center card-title">{items.product_name}</h5>
             </div>
-            <Link to="/product-details" className="btn btn-primary">Go </Link>
+            <Link to={`/product-details/${items.id}`} className="btn btn-primary">Go </Link>
           </div>
         </div>
       )

@@ -45,4 +45,12 @@ class FrontendController extends Controller
             ]);
         }
     }
+
+    public function productDetails($id){
+        $product = Product::find($id);
+        return response()->json([
+            'status'=>200,
+            'product'=>$product,
+        ]);
+    }
 }
