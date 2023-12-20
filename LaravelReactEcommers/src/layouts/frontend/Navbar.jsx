@@ -91,7 +91,7 @@ const Navbar = () => {
                             </ul>
                         </div>
                         <div className='btn btn-sm btn-success pr-3 me-3'>
-                            Carts
+                        <Link className="nav-link" to="/cart">Cart </Link>
                         </div>
 
                         <div style={{ marginRight: "35px" }}>

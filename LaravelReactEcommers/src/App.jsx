@@ -22,6 +22,7 @@ import Home from "./components/frontend/Home";
 import ViewCategory from "./components/frontend/collections/ViewCategory";
 import ViewProduct from "./components/frontend/collections/ViewProduct";
 import ProductDetails from "./components/frontend/collections/ProductDetails";
+import Cart from "./components/frontend/collections/Cart";
 
 
 //backend 
@@ -35,6 +36,7 @@ import AllProduct from "./components/admin/Product/All_product";
 import EditProduct from "./components/admin/Product/Edit_Product";
 import Category from "./components/frontend/Category";
 import About from "./components/frontend/About";
+
 
 
 function App() {
@@ -54,6 +56,7 @@ function App() {
           <Route path="/collections" element={<ViewCategory />} />
           <Route path="/collections/:slug" element={<ViewProduct />} />
           <Route path="/product-details/:id" element={<ProductDetails />} />
+          <Route path="/cart" element={<Cart />} />
           
           
 
