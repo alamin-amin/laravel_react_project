@@ -52,7 +52,7 @@ const ProductDetails = () => {
                                         <div className='row'>
                                             <div className='col-md-3 mt-3'>
                                                 <div className='input-group'>
-                                                    <button type='button' onClick={decrementNumber} className='input-group-text'>-</button>
+                                                    <button type='button' onClick={decrementNumber} className='input-group-text '>-</button>
                                                     <input type="text" className='form-control text-center'  value={number} />
                                                     <button type='button' onClick={incrementNumber} className='input-group-text'>+</button>
                                                 </div>
