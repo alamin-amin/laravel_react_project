@@ -17,6 +17,17 @@ class FrontendController extends Controller
         ]);
     }
 
+
+  // show single Product frontend
+     public function productDetails($id){
+         $product = Product::find($id);
+            return response()->json([
+            'status'=>200,
+            'product'=>$product,
+        ]);
+    }
+
+
     public function product($slug){
         $category = Category::where('slug',$slug)->where('status','0')->first();
         if($category)
@@ -46,11 +57,5 @@ class FrontendController extends Controller
         }
     }
 
-    public function productDetails($id){
-        $product = Product::find($id);
-        return response()->json([
-            'status'=>200,
-            'product'=>$product,
-        ]);
-    }
+  
 }
