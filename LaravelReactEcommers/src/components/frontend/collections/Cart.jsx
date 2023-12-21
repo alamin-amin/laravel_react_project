@@ -1,19 +1,14 @@
 
 import React, { useEffect, useState } from 'react'
-//  import { useParams } from 'react-router-dom';
 import axios from 'axios';
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import Navbar from '../../../layouts/frontend/Navbar';
 function Cart() {
     const navigate = useNavigate();
     const [cart, setCart] = useState([]);
     const [loading, setLoading] = useState(true);
-
-    // if (!localStorage.setItem('auth_token')) {
-    //     navigate('/');
-    //     swal('Warning', 'Login to go to page', 'error');
-    // }
+    var totalCartPrice = 0;
 
     useEffect(() => {
         axios.get(`/api/cart`).then(res => {
@@ -52,27 +47,24 @@ function Cart() {
         });
     }
 
- //........... Cart product qty update end........
+    //........... Cart product qty update end........
 
-
-
- const deleteCartItem=(e, cart_id)=>{
-    e.preventDefault();
-    const thisClicked = e.currentTarget;
+    const deleteCartItem = (e, cart_id) => {
+        e.preventDefault();
+        const thisClicked = e.currentTarget;
         thisClicked.innerText = "Removing";
 
         axios.delete(`api/delete-cart-product/${cart_id}`).then(res => {
             if (res.data.status === 200) {
                 swal('Success', res.data.message, 'success');
                 thisClicked.closest("tr").remove();
-
             }
             else if (res.data.status === 404) {
                 swal('Error', res.data.message, 'error');
                 thisClicked.innerText = "Remove";
             }
         });
- }
+    }
 
     var cart_html = '';
     if (cart.length > 0) {
@@ -90,9 +82,10 @@ function Cart() {
                     </tr>
                 </thead>
                 <tbody>
-                    {cart.map((item) => {
+                    {cart.map((item, idx) => {
+                        totalCartPrice += item.product.selling_price * item.product_quantity
                         return (
-                            <tr>
+                            <tr key={idx}>
                                 <td width="5%"> {item.id}</td>
                                 <td width="11%" className='text-center'> <img src={`http://127.0.0.1:8000/${item.product.image}`} alt="" width='60px' height="50px" /></td>
                                 <td className='text-center'> {item.product.product_name}</td>
@@ -107,7 +100,7 @@ function Cart() {
                                 </td>
                                 <td width="15%" className='text-center'>{item.product.selling_price * item.product_quantity}</td>
                                 <td width="10%" className='text-center'>
-                                    <button type='button' onClick={(e) => deleteCartItem(e,item.id)} className='input-group-text text-center btn btn-danger btn-sm'>Remove</button>
+                                    <button type='button' onClick={(e) => deleteCartItem(e, item.id)} className='input-group-text text-center btn btn-danger btn-sm'>Remove</button>
                                 </td>
                             </tr>
                         )
@@ -140,6 +133,21 @@ function Cart() {
                             <div className='col-md-12'>
                                 {cart_html}
                             </div>
+
+                            <div className='col-md-8'> </div>
+                            <div className='col-md-4'>
+                                <div className='card card-body mt-1'>
+                                    <h3>Sub total :
+                                        <span className='float-end'>BDT - {totalCartPrice}</span>
+                                    </h3>
+                                    <h3>Grand total :
+                                        <span className='float-end'> BDT - {totalCartPrice}</span>
+                                    </h3>
+                                    <hr />
+                                    <Link to="/checkout" className='btn btn-primary'> Checkout </Link>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 </div>

@@ -58,7 +58,7 @@ const Navbar = () => {
                                 <Link className="nav-link active" aria-current="page" to="/frontHome">Home</Link>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link" to="/collections">Contact </Link>
+                                <Link className="nav-link" to="#">Contact </Link>
                             </li>
                             <li className="nav-item">
                                 <Link className="nav-link" to="/About">About</Link>
@@ -75,7 +75,7 @@ const Navbar = () => {
                                 </ul>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link" to="/Category" tabindex="-1" aria-disabled="true">Category</Link>
+                                <Link className="nav-link" to="/collections" tabindex="-1" aria-disabled="true">Category</Link>
                             </li>
                         </ul>
                         <div style={{ marginRight: "120px" }}>
