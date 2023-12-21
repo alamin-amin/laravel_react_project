@@ -47,4 +47,24 @@ class CartController extends Controller
             ]);
         }
     }
+
+    public function viewCart(){
+        if (auth('sanctum')->check()) {
+            $user_id = auth('sanctum')->user()->id;
+            $cartItem = Cart::where ('user_id',$user_id)->get();
+            return response()->json([
+                'status' => 200,
+                'cart' => $cartItem,
+            ]);
+
+
+        }
+        else
+        {
+            return response()->json([
+                'status' => 401,
+                'message' => "Login to add to Cart",
+            ]); 
+        }
+    }
 }

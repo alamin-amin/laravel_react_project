@@ -1,11 +1,18 @@
-import React from 'react'
+
 import React, { useEffect, useState } from 'react'
-// import { useParams } from 'react-router-dom';
+//  import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import { useNavigate } from "react-router-dom";
 
 import Navbar from '../../../layouts/frontend/Navbar';
 function Cart() {
+
+
+    if (!localStorage.setItem('auth_token')) {
+        navigate('/')
+        swal('Warning', 'Login to go to page', 'error');
+    }
+
     const navigate = useNavigate();
     const [cart, setCart] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -16,8 +23,7 @@ function Cart() {
                 setCart(res.data.cart);
                 setLoading(false)
             }
-            else if(res.data.status === 401)
-            {
+            else if (res.data.status === 401) {
                 navigate('/');
                 swal("Warning", res.data.message, "error");
             }
@@ -52,22 +58,26 @@ function Cart() {
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td> <img src="" alt="" width='50px' height="50px" /></td>
-                                                <td> aple</td>
-                                                <td> 600</td>
-                                                <td width="15%">
-                                                    <div className='input-group'>
-                                                        <button type='button' className='input-group-text '>-</button>
-                                                        <div className='form-control text-center'>2</div>
-                                                        <button type='button' className='input-group-text'>+</button>
-                                                    </div>
-                                                </td>
-                                                <td width="15%" className='text-center'>90000</td>
-                                                <td width="15%" className='text-center'>
-                                                    <button type='button' className='input-group-text '>Remove</button>
-                                                </td>
-                                            </tr>
+                                            {cart.map((item) => {
+                                                return (
+                                                    <tr>
+                                                        <td> <img src="" alt="" width='50px' height="50px" /></td>
+                                                        <td> {item.product_id}</td>
+                                                        <td> 600</td>
+                                                        <td width="15%">
+                                                            <div className='input-group'>
+                                                                <button type='button' className='input-group-text '>-</button>
+                                                                <div className='form-control text-center'>2</div>
+                                                                <button type='button' className='input-group-text'>+</button>
+                                                            </div>
+                                                        </td>
+                                                        <td width="15%" className='text-center'>90000</td>
+                                                        <td width="15%" className='text-center'>
+                                                            <button type='button' className='input-group-text '>Remove</button>
+                                                        </td>
+                                                    </tr>
+                                                )
+                                            })};
                                         </tbody>
                                     </table>
                                 </div>
