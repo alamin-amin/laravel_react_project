@@ -42,6 +42,7 @@ Route::get('product-details/{id}',[FrontendController::class,'productDetails']);
 Route::post('add-to-cart',[CartController::class,'addToCart']);
 Route::get('cart',[CartController::class,'viewCart']);
 Route::put('cart-updateQty/{cart_id}/{scope}',[CartController::class,'updateQuantity']);
+Route::delete('delete-cart-product/{cart_id}',[CartController::class,'deleteCartItem']);
 
 
 

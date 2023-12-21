@@ -87,4 +87,28 @@ class CartController extends Controller
             ]);
         }
     }
+    public function deleteCartItem($cart_id)
+    {
+        if (auth('sanctum')->check()) {
+            $user_id = auth('sanctum')->user()->id;
+            $cartItem = Cart::where('id', $cart_id)->where('user_id', $user_id)->first();
+            if ($cartItem) {
+                $cartItem->delete();
+                return response()->json([
+                    'status' => 200,
+                    'message' => "Your item removed !",
+                ]);
+            } else {
+                return response()->json([
+                    'status' => 404,
+                    'message' => "Cart item not found",
+                ]);
+            }
+        } else {
+            return response()->json([
+                'status' => 401,
+                'message' => "Login to Continue",
+            ]);
+        }
+    }
 }

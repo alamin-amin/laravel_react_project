@@ -54,6 +54,26 @@ function Cart() {
 
  //........... Cart product qty update end........
 
+
+
+ const deleteCartItem=(e, cart_id)=>{
+    e.preventDefault();
+    const thisClicked = e.currentTarget;
+        thisClicked.innerText = "Removing";
+
+        axios.delete(`api/delete-cart-product/${cart_id}`).then(res => {
+            if (res.data.status === 200) {
+                swal('Success', res.data.message, 'success');
+                thisClicked.closest("tr").remove();
+
+            }
+            else if (res.data.status === 404) {
+                swal('Error', res.data.message, 'error');
+                thisClicked.innerText = "Remove";
+            }
+        });
+ }
+
     var cart_html = '';
     if (cart.length > 0) {
         cart_html = <div className='table table-responsive'>
@@ -87,7 +107,7 @@ function Cart() {
                                 </td>
                                 <td width="15%" className='text-center'>{item.product.selling_price * item.product_quantity}</td>
                                 <td width="10%" className='text-center'>
-                                    <button type='button' className='input-group-text text-center btn btn-danger btn-sm'>Remove</button>
+                                    <button type='button' onClick={(e) => deleteCartItem(e,item.id)} className='input-group-text text-center btn btn-danger btn-sm'>Remove</button>
                                 </td>
                             </tr>
                         )
