@@ -52,28 +52,14 @@ const AddProduct = () => {
     formData.append('quantity', productInput.quantity);
     formData.append('status', productInput.status);
 
-    // const formData = {
-    //   category_id: productInput.category_id,
-    //   product_name: productInput.product_name,
-    //   slug: productInput.slug,
-    //   brand: productInput.brand,
-    //   selling_price: productInput.selling_price,
-    //   buying_price: productInput.buying_price,
-    //   quantity: productInput.quantity,
-    //   image: picture.image,
-    //   status: productInput.status,
-    // }
-
-    axios.post(`api/add-product`, formData,{
+    axios.post(`api/add-product`, formData, {
       headers: {
         "Content-Type": "multipart/form-data"
       }
     }).then(res => {
       navigate('/admin/AllProduct');
-      // console.log(res.data);
       if (res.data.status === 200) {
         swal("Success", res.data.message, "success");
-       
         setError([]);
       }
       else if (res.data.status === 422) {

@@ -8,7 +8,21 @@ function Checkout() {
 
     const navigate = useNavigate();
     const [cart, setCart] = useState([]);
+    const [error, setError] = useState([]);
     var totalCartPrice = 0;
+
+    const [checkoutInput, setCheckoutInput] = useState({
+        firstname: '',
+        lastname: '',
+        phone: '',
+        email: '',
+        address: '',
+        city: '',
+        State: '',
+        zipcode: '',
+
+    });
+
 
     useEffect(() => {
         axios.get(`/api/cart`).then(res => {
@@ -22,6 +36,35 @@ function Checkout() {
         });
     }, []);
 
+    const handleInput = (e) => {
+        e.persist();
+        setCheckoutInput({ ...checkoutInput, [e.target.name]: e.target.value });
+    }
+    const submitOrder = (e) => {
+        e.preventDefault();
+        const data = {
+            firstname: checkoutInput.firstname,
+            lastname: checkoutInput.lastname,
+            phone: checkoutInput.phone,
+            email: checkoutInput.email,
+            address: checkoutInput.address,
+            city: checkoutInput.city,
+            State: checkoutInput.State,
+            zipcode: checkoutInput.zipcode,
+
+        }
+        axios.post(`api/place-order`, data).then(res => {
+            if (res.data.status === 200) {
+                swal("Order Placed Successfully", res.data.message, "success");
+                setError([]);
+                navigate('/thank-you');
+            }
+            else if (res.data.status === 422) {
+                swal("All fields are mandetory", res.data.message, "success");
+                setError([res.data.errors]);
+            }
+        });
+    }
 
     return (
         <>
@@ -46,54 +89,62 @@ function Checkout() {
                                                 <div className='col-md-6'>
                                                     <div className='from-group mb-2'>
                                                         <label htmlFor="">First Name</label>
-                                                        <input type="text" name='firstname' className='form-control' />
+                                                        <input type="text" onChange={handleInput} value={checkoutInput.firstname} name='firstname' className='form-control' />
+                                                        <small className='text-danger'>{error.firstname}</small>
                                                     </div>
                                                 </div>
                                                 <div className='col-md-6'>
                                                     <div className='from-group mb-2'>
                                                         <label htmlFor="">Last Name</label>
-                                                        <input type="text" name='lastname' className='form-control' />
+                                                        <input type="text" onChange={handleInput} value={checkoutInput.lastname} name='lastname' className='form-control' />
+                                                        <small className='text-danger'>{error.lastname}</small>
                                                     </div>
                                                 </div>
                                                 <div className='col-md-6'>
                                                     <div className='from-group mb-2'>
                                                         <label htmlFor="">Phone Number</label>
-                                                        <input type="number" name='phone' className='form-control' />
+                                                        <input type="number" onChange={handleInput} value={checkoutInput.phone} name='phone' className='form-control' />
+                                                        <small className='text-danger'>{error.phone}</small>
                                                     </div>
                                                 </div>
                                                 <div className='col-md-6'>
                                                     <div className='from-group mb-2'>
                                                         <label htmlFor="">Email Address</label>
-                                                        <input type="email" name='email' className='form-control' />
+                                                        <input type="email" onChange={handleInput} value={checkoutInput.email} name='email' className='form-control' />
+                                                        <small className='text-danger'>{error.email}</small>
                                                     </div>
                                                 </div>
                                                 <div className='col-md-12'>
                                                     <div className='from-group mb-2'>
                                                         <label htmlFor="">Full Address</label>
-                                                        <textarea rows="3" className='form-control'></textarea>
+                                                        <textarea rows="3" onChange={handleInput} value={checkoutInput.address} name='address' className='form-control'></textarea>
+                                                        <small className='text-danger'>{error.address}</small>
                                                     </div>
                                                 </div>
                                                 <div className='col-md-6'>
                                                     <div className='from-group mb-2'>
                                                         <label htmlFor="">City</label>
-                                                        <input type="text" name='city' className='form-control' />
+                                                        <input type="text" onChange={handleInput} value={checkoutInput.city} name='city' className='form-control' />
+                                                        <small className='text-danger'>{error.city}</small>
                                                     </div>
                                                 </div>
                                                 <div className='col-md-6'>
                                                     <div className='from-group mb-2'>
                                                         <label htmlFor=""> State</label>
-                                                        <input type="text" name='state' className='form-control' />
+                                                        <input type="text" onChange={handleInput} value={checkoutInput.state} name='state' className='form-control' />
+                                                        <small className='text-danger'>{error.state}</small>
                                                     </div>
                                                 </div>
                                                 <div className='col-md-6'>
                                                     <div className='from-group mb-2'>
                                                         <label htmlFor=""> Zip Code</label>
-                                                        <input type="text" name='zipcode' className='form-control' />
+                                                        <input type="text" onChange={handleInput} value={checkoutInput.zipcode} name='zipcode' className='form-control' />
+                                                        <small className='text-danger'>{error.zipcode}</small>
                                                     </div>
                                                 </div>
                                                 <div className='col-md-12'>
                                                     <div className='from-group text-end mb-2'>
-                                                        <button type="button" className='btn btn-primary form-control'> Place Order </button>
+                                                        <button type="button" onClick={submitOrder} className='btn btn-primary form-control'> Place Order </button>
                                                     </div>
                                                 </div>
                                             </div>
