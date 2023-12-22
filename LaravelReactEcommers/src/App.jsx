@@ -24,6 +24,7 @@ import ViewProduct from "./components/frontend/collections/ViewProduct";
 import ProductDetails from "./components/frontend/collections/ProductDetails";
 import Cart from "./components/frontend/collections/Cart";
 import Checkout from "./components/frontend/collections/Checkout";
+import Thank from "./components/frontend/collections/Thank";
 
 
 //backend 
@@ -37,6 +38,7 @@ import AllProduct from "./components/admin/Product/All_product";
 import EditProduct from "./components/admin/Product/Edit_Product";
 import Category from "./components/frontend/Category";
 import About from "./components/frontend/About";
+
 
 
 
@@ -61,6 +63,7 @@ function App() {
           <Route path="/product-details/:id" element={<ProductDetails />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/checkout" element={<Checkout />} />
+          <Route path="/thank-you" element={<Thank />} />
           
           
 
