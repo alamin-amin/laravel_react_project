@@ -18,11 +18,10 @@ function Checkout() {
         email: '',
         address: '',
         city: '',
-        State: '',
+        state: '',
         zipcode: '',
 
     });
-
 
     useEffect(() => {
         axios.get(`/api/cart`).then(res => {
@@ -49,9 +48,8 @@ function Checkout() {
             email: checkoutInput.email,
             address: checkoutInput.address,
             city: checkoutInput.city,
-            State: checkoutInput.State,
+            state: checkoutInput.state,
             zipcode: checkoutInput.zipcode,
-
         }
         axios.post(`api/place-order`, data).then(res => {
             if (res.data.status === 200) {
