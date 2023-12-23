@@ -30,7 +30,14 @@ const AllProduct = () => {
             <div className="card-body">
               <h5 className="text-center card-title">{items.product_name}</h5>
             </div>
-            <Link to={`/product-details/${items.id}`} className="btn btn-primary">Add to Cart </Link>
+            <div className='mb-2 text-success text-end fs-4'>
+                                <i className='fas fa-star'/>
+                                <i className='fas fa-star'/>
+                                <i className='fas fa-star'/>
+                                <i className='fas fa-star'/>
+                                <i className='fas fa-star-half-alt'/>
+                            </div>
+            <Link to={`/product-details/${items.id}`} className="btn btn-primary"><i className='fas fa-shopping-cart pe-2'/>Add to Cart </Link>
           </div>
         </div>
       )

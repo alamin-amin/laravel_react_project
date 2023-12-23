@@ -21,7 +21,7 @@ class CartController extends Controller
                 if (Cart::where('product_id', $product_id)->where('user_id', $user_id)->exists()) {
                     return response()->json([
                         'status' => 409,
-                        'message' => $productCheck->product_name . "Already Added to Cart",
+                        'message' => $productCheck->product_name ."=>". "Already Added to Cart",
                     ]);
                 } else {
                     $cartItem = new Cart;
