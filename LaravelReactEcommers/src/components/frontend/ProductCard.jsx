@@ -6,7 +6,7 @@ import axios from 'axios';
 const AllProduct = () => {
   const [loading, setLoading] = useState(true);
   const [viewProduct, setProduct] = useState([]);
-
+ 
   useEffect(() => {
     document.title = "View Products";
 
@@ -30,10 +30,7 @@ const AllProduct = () => {
             <div className="card-body">
               <h5 className="text-center card-title">{items.product_name}</h5>
             </div>
-            <span className='pb-2' style={{ width: "100%" }}>
-              <Link to={`/product-details/${items.id}`} className="btn btn-primary">Go </Link>
-            </span>
-
+            <Link to={`/product-details/${items.id}`} className="btn btn-primary">Add to Cart </Link>
           </div>
         </div>
       )

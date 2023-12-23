@@ -4,6 +4,7 @@ namespace App\Http\Controllers\API;
 
 use App\Models\Cart;
 use App\Models\Order;
+use App\Models\Product;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
@@ -72,5 +73,13 @@ class placeOrderController extends Controller
                 'message' => "Login to Continue",
             ]);
         }
+    }
+
+    public function index(){
+        $orders = Order::all();
+        return response()->json([
+            'status'=>200,
+            'orders'=>$orders
+        ]);
     }
 }

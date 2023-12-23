@@ -45,7 +45,7 @@ const ProductDetails = () => {
             } else if (res.data.status === 409) {
                 swal("Warning", res.data.message, "warning");
             } else if (res.data.status === 401) {
-                swal("Success", res.data.message, "success");
+                swal("Warning", res.data.message, "warning");
             } else if (res.data.status === 404) {
                 swal("Warning", res.data.message, "warning");
             }

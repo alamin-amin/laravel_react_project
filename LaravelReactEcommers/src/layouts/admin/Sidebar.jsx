@@ -37,15 +37,14 @@ const Sidebar = () => {
                             </nav>
                         </div>
 
-                         <Link className="nav-link collapsed" to="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth">
-                           Order
+                        <Link className="nav-link collapsed" to="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth">
+                            Order
                             <div className="sb-sidenav-collapse-arrow"><i className="fas fa-angle-down"></i></div>
                         </Link>
                         <div className="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
                             <nav className="sb-sidenav-menu-nested nav">
-                                <Link className="nav-link" to="/admin/allCategory">All Category</Link>
-                                <Link className="nav-link" to="/admin/addCategory">Add Category</Link>
-                                <Link className="nav-link" to="/admin/editCategory">Edit Category</Link>
+                                <Link className="nav-link" to="/admin/all_order">All Order</Link>
+
                             </nav>
                         </div>
                     </nav>

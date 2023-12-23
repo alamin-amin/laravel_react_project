@@ -8,7 +8,7 @@ function Checkout() {
 
     const navigate = useNavigate();
     const [cart, setCart] = useState([]);
-    const [error, setError] = useState([]);
+   
     var totalCartPrice = 0;
 
     const [checkoutInput, setCheckoutInput] = useState({
@@ -22,6 +22,7 @@ function Checkout() {
         zipcode: '',
 
     });
+    const [error, setError] = useState([]);
 
     useEffect(() => {
         axios.get(`/api/cart`).then(res => {
@@ -58,7 +59,7 @@ function Checkout() {
                 navigate('/thank-you');
             }
             else if (res.data.status === 422) {
-                swal("All fields are mandetory", res.data.message, "success");
+                swal("All fields are mandetory", "", "error");
                 setError([res.data.errors]);
             }
         });

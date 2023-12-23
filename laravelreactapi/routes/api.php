@@ -46,6 +46,7 @@ Route::put('cart-updateQty/{cart_id}/{scope}',[CartController::class,'updateQuan
 Route::delete('delete-cart-product/{cart_id}',[CartController::class,'deleteCartItem']);
 
 Route::post('place-order',[placeOrderController::class,'placeOrdet']);
+Route::get('/admin-orders',[placeOrderController::class,'index']);
 
 
 
