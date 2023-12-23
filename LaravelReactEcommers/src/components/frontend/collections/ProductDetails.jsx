@@ -58,7 +58,7 @@ const ProductDetails = () => {
             <div>
                 <div className='container mt-2'>
                     <div>
-                        <h3 >Product Details</h3>
+                        <h3> <i className="fa-solid fa-chart-simple"></i> Product Details</h3>
                     </div>
                 </div>
                 <div className='py-3'>
@@ -70,7 +70,7 @@ const ProductDetails = () => {
                             <div className='col-md-8'>
                                 <h4>Product Name : {detailsProduct.product_name} </h4>
                                 <h4> Brand : {detailsProduct.brand} </h4>
-                                <h3> Product Price : {detailsProduct.selling_price} </h3>
+                                <h3> Product Price : {detailsProduct.selling_price} TK .</h3>
                                 {/* <h3> Category : {detailsProduct.category.categoryName} </h3> */}
                                 <div>
                                     <label htmlFor="" className='btn-sm btn-success px-4 mt-3'>In stoke</label>

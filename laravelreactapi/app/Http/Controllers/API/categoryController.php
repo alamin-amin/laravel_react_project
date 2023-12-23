@@ -26,6 +26,7 @@ class categoryController extends Controller
             'category'=>$category,
         ]);
     }
+    
    public function addCategory(Request $request){
         $validator = Validator::make($request->all(),[
             'categoryName'=>'Required',

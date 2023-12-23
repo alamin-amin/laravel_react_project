@@ -27,9 +27,9 @@ class ProductController extends Controller
             'selling_price'=>'required',
             'buying_price'=>'required',
             'quantity'=>'required',
-            'image'=>'required',
+            // 'image'=>'required',
             'status'=>'required',
-            //   'image'=>'required|image|mimes:jpeg,png,jpg|max:2048',
+            'image'=>'required|image|mimes:jpeg,png,jpg,webp|max:2048',
         ]);
         if($validator->fails()){
             return response()->json([
@@ -52,8 +52,8 @@ class ProductController extends Controller
                 $file->move('uploads/product/',$fileName);
                 $product->image ='uploads/product/'.$fileName;
             }
-            $product->save();
             $product->status = $request->input('status');
+            $product->save();
 
             return response()->json([
                 'status'=>200,

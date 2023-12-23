@@ -18,7 +18,7 @@ const AddProduct = () => {
     quantity: '',
     status: '',
   });
-
+  
   const [picture, setPicture] = useState("");
   const [errorlist, setError] = useState([]);
 

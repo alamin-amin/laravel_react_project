@@ -20,7 +20,6 @@ function Checkout() {
         city: '',
         state: '',
         zipcode: '',
-
     });
     const [error, setError] = useState([]);
 
@@ -73,62 +72,62 @@ function Checkout() {
                 <div className='col-md-7'>
                     <div className='card'>
                         <div className='card-header'>
-                            <h3 className='text-center'>  Order information</h3>
+                            <h3 className='text-center'><i class="fas fa-truck"></i> Delivery information</h3>
                         </div>
                         <div className='card-dody'>
                             <div className='row'>
                                 <div className='col-md-6'>
                                     <div className='from-group mb-2'>
-                                        <label htmlFor="">First Name</label>
-                                        <input type="text" onChange={handleInput} value={checkoutInput.firstname} name='firstname' className='form-control' />
+                                        <label htmlFor="" className='ps-2 fs-5'>First Name</label>
+                                        <input type="text" onChange={handleInput} value={checkoutInput.firstname} name='firstname' className='form-control ' />
                                         <small className='text-danger'>{error.firstname}</small>
                                     </div>
                                 </div>
                                 <div className='col-md-6'>
                                     <div className='from-group mb-2'>
-                                        <label htmlFor="">Last Name</label>
+                                        <label htmlFor="" className='ps-2 fs-5'>Last Name</label>
                                         <input type="text" onChange={handleInput} value={checkoutInput.lastname} name='lastname' className='form-control' />
                                         <small className='text-danger'>{error.lastname}</small>
                                     </div>
                                 </div>
                                 <div className='col-md-6'>
                                     <div className='from-group mb-2'>
-                                        <label htmlFor="">Phone Number</label>
+                                        <label htmlFor="" className='ps-2 fs-5'>Phone Number</label>
                                         <input type="number" onChange={handleInput} value={checkoutInput.phone} name='phone' className='form-control' />
                                         <small className='text-danger'>{error.phone}</small>
                                     </div>
                                 </div>
                                 <div className='col-md-6'>
                                     <div className='from-group mb-2'>
-                                        <label htmlFor="">Email Address</label>
+                                        <label htmlFor="" className='ps-2 fs-5'>Email Address</label>
                                         <input type="email" onChange={handleInput} value={checkoutInput.email} name='email' className='form-control' />
                                         <small className='text-danger'>{error.email}</small>
                                     </div>
                                 </div>
                                 <div className='col-md-12'>
                                     <div className='from-group mb-2'>
-                                        <label htmlFor="">Full Address</label>
-                                        <textarea rows="3" onChange={handleInput} value={checkoutInput.address} name='address' className='form-control'></textarea>
+                                        <label htmlFor="" className='ps-2 fs-5'>Full Address</label>
+                                        <textarea rows="2" onChange={handleInput} value={checkoutInput.address} name='address' className='form-control'></textarea>
                                         <small className='text-danger'>{error.address}</small>
                                     </div>
                                 </div>
                                 <div className='col-md-6'>
                                     <div className='from-group mb-2'>
-                                        <label htmlFor="">City</label>
+                                        <label htmlFor="" className='ps-2 fs-5'>City</label>
                                         <input type="text" onChange={handleInput} value={checkoutInput.city} name='city' className='form-control' />
                                         <small className='text-danger'>{error.city}</small>
                                     </div>
                                 </div>
                                 <div className='col-md-6'>
                                     <div className='from-group mb-2'>
-                                        <label htmlFor=""> State</label>
+                                        <label htmlFor="" className='ps-2 fs-5'> State</label>
                                         <input type="text" onChange={handleInput} value={checkoutInput.state} name='state' className='form-control' />
                                         <small className='text-danger'>{error.state}</small>
                                     </div>
                                 </div>
                                 <div className='col-md-6'>
                                     <div className='from-group mb-2'>
-                                        <label htmlFor=""> Zip Code</label>
+                                        <label htmlFor="" className='ps-2 fs-5'> Zip Code</label>
                                         <input type="text" onChange={handleInput} value={checkoutInput.zipcode} name='zipcode' className='form-control' />
                                         <small className='text-danger'>{error.zipcode}</small>
                                     </div>
@@ -167,7 +166,7 @@ function Checkout() {
                                 )
                             })}
                             <tr>
-                                <td colSpan="3" className='text-end fw-bold'>Grand total</td>
+                                <td colSpan="3" className='text-end fw-bold'><i className="fa-solid fa-bangladeshi-taka-sign pe-3"></i>Grand Total</td>
                                 <td colSpan="3" className='text-end fw-bold'>{totalCartPrice} TK .</td>
                             </tr>
                         </tbody>
@@ -183,9 +182,7 @@ function Checkout() {
                 <h3 className='text-center'> Your Shaping Cart is Empty ! please go to cart page </h3>
             </div>
         </div>
-
     }
-
 
     return (
         <>
@@ -204,7 +201,6 @@ function Checkout() {
                     </div>
                 </div>
             </div>
-
         </>
     )
 }

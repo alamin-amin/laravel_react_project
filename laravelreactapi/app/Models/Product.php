@@ -18,7 +18,7 @@ class Product extends Model
         'buying_price',
         'quantity',
         'status',
-        'image',
+        'image', 
     ];
     protected $with = ['category'];
     public function category(){

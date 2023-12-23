@@ -101,7 +101,7 @@ function Cart() {
                                     </td>
                                     <td width="15%" className='text-center'>{item.product.selling_price * item.product_quantity}</td>
                                     <td width="10%" className='text-center'>
-                                        <button type='button' onClick={(e) => deleteCartItem(e, item.id)} className='input-group-text text-center btn btn-danger btn-sm'>Remove</button>
+                                        <button type='button' onClick={(e) => deleteCartItem(e, item.id)} className='input-group-text text-center btn btn-danger btn-sm'><i class="far fa-trash-alt"></i></button>
                                     </td>
                                 </tr>
                             )
@@ -114,12 +114,12 @@ function Cart() {
                 <div className='col-md-8'> </div>
                 <div className='col-md-4'>
                     <div className='card card-body mt-1'>
-                        <h3>Sub total :
+                        <h4><i className="fa-solid fa-bangladeshi-taka-sign pe-3"></i> Sub total :
                             <span className='float-end'>BDT - {totalCartPrice}</span>
-                        </h3>
-                        <h3>Grand total :
+                        </h4>
+                        <h4><i className="fa-solid fa-bangladeshi-taka-sign pe-3"></i> Grand total :
                             <span className='float-end'> BDT - {totalCartPrice}</span>
-                        </h3>
+                        </h4>
                         <hr />
                         <Link to="/checkout" className='btn btn-primary'> Checkout </Link>
                     </div>
