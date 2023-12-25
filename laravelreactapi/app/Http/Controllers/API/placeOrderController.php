@@ -4,6 +4,7 @@ namespace App\Http\Controllers\API;
 
 use App\Models\Cart;
 use App\Models\Order;
+use App\Models\Ordetitems;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -82,4 +83,13 @@ class placeOrderController extends Controller
             'orders'=>$orders
         ]);
     }
+    public function oderDetails(){
+        $orders = Ordetitems::all();
+        return response()->json([
+            'status'=>200,
+            'orders'=>$orders
+        ]);
+    }
+
+
 }

@@ -29,7 +29,6 @@ function All_Order() {
                     <td>{items.lastname}</td>
                     <td>{items.phone}</td>
                     <td>{items.tracking_no}</td>
-                    {/* <td><img src={`http://127.0.0.1:8000/${items.product.image}`} width="50px" alt={items.name} /></td> */}
                     <td>{items.payment_mode}</td>
                     <td>{items.status}</td>
                     <td>{items.status === 0 ? 'visible' : 'Hidden'}</td>
