@@ -51,7 +51,7 @@ function Dashboard() {
                      <div className="icon">
                         <i className="ion ion-stats-bars"></i>
                      </div>
-                     <Link href="{{ route('orders.index') }}" className="small-box-footer text-dark">More info <i className="fas fa-arrow-circle-right"></i></Link>
+                     <Link to="/admin/all_order" className="small-box-footer text-dark">More info <i className="fas fa-arrow-circle-right"></i></Link>
                   </div>
                </div>
                <div className="col-lg-4 col-6 mt-4">
@@ -66,7 +66,7 @@ function Dashboard() {
                      <div className="icon">
                         <i className="ion ion-stats-bars"></i>
                      </div>
-                     <Link href="{{ route('products.index') }}" className="small-box-footer text-dark">More info <i className="fas fa-arrow-circle-right"></i></Link>
+                     <Link to="/admin/AllProduct" className="small-box-footer text-dark">More info <i className="fas fa-arrow-circle-right"></i></Link>
                   </div>
                </div>
                <div className="col-lg-4 col-6 mt-4">
@@ -81,7 +81,7 @@ function Dashboard() {
                      <div className="icon">
                         <i className="ion ion-stats-bars"></i>
                      </div>
-                     <Link href="{{ route('orders.index') }}" className="small-box-footer text-dark">More info <i className="fas fa-arrow-circle-right"></i></Link>
+                     <Link to="{{ route('orders.index') }}" className="small-box-footer text-dark">More info <i className="fas fa-arrow-circle-right"></i></Link>
                   </div>
                </div>
               
@@ -96,7 +96,7 @@ function Dashboard() {
                      <div className="icon">
                         <i className="ion ion-stats-bars"></i>
                      </div>
-                     <Link href="{{ route('categories.index') }}" className="small-box-footer text-dark">More info <i className="fas fa-arrow-circle-right"></i></Link>
+                     <Link to="/admin/allCategory" className="small-box-footer text-dark">More info <i className="fas fa-arrow-circle-right"></i></Link>
                   </div>
                </div>
 
@@ -111,7 +111,7 @@ function Dashboard() {
                      <div className="icon">
                         <i className="ion ion-stats-bars"></i>
                      </div>
-                     <Link href="{{ route('customers.index') }}" className="small-box-footer text-dark">More info <i className="fas fa-arrow-circle-right"></i></Link>
+                     <Link to="{{ route('customers.index') }}" className="small-box-footer text-dark">More info <i className="fas fa-arrow-circle-right"></i></Link>
                   </div>
                </div>
                <div className="col-lg-4 col-6 mt-4">
@@ -127,7 +127,7 @@ function Dashboard() {
                      <div className="icon">
                         <i className="ion ion-stats-bars"></i>
                      </div>
-                     <Link href="{{ route('expenses.index') }}" className="small-box-footer text-dark">More info <i className="fas fa-arrow-circle-right"></i></Link>
+                     <Link to="{{ route('expenses.index') }}" className="small-box-footer text-dark">More info <i className="fas fa-arrow-circle-right"></i></Link>
                   </div>
                </div>
             </div>
