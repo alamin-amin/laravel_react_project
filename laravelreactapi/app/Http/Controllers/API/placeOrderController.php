@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\API;
 
 use App\Models\Cart;
+use App\Models\Category;
 use App\Models\Order;
 use App\Models\Ordetitems;
 use App\Models\Product;
@@ -83,11 +84,33 @@ class placeOrderController extends Controller
             'orders'=>$orders
         ]);
     }
-    public function oderDetails(){
-        $orders = Ordetitems::all();
+    public function r($order_id){
+        $order = Order::where('id',$order_id)->first();
+        $orderItem = Ordetitems::with('product')->where('order_id',$order_id)->get();
         return response()->json([
             'status'=>200,
-            'orders'=>$orders
+            'order'=>$orderItem
+        ]);
+    }
+    public function orderCount(){
+        $orderCount = Order::count();
+        return response()->json([
+            'status'=>200,
+            'orderCount'=>$orderCount
+        ]);
+    }
+    public function categoryCount(){
+        $categoryCount = Category::count();
+        return response()->json([
+            'status'=>200,
+            'categoryCount'=>$categoryCount
+        ]);
+    }
+    public function productCount(){
+        $productCount = Product::count();
+        return response()->json([
+            'status'=>200,
+            'productCount'=>$productCount
         ]);
     }
 

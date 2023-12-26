@@ -39,6 +39,8 @@ import EditProduct from "./components/admin/Product/Edit_Product";
 import Category from "./components/frontend/Category";
 import About from "./components/frontend/About";
 import All_Order from "./components/admin/Order/all_order";
+import Order_details from "./components/admin/Order/Order_details";
+
 
 
 
@@ -83,6 +85,8 @@ function App() {
 
           {/* order route */}
           <Route path="/admin/all_order" element={< All_Order />} />
+          <Route path="/admin/order_details/:id" element={<Order_details />} />
+         
 
         </Routes>
       </BrowserRouter>

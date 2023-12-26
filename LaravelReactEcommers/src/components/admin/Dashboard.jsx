@@ -1,10 +1,40 @@
-import React from "react";
+import React,{useEffect,useState} from "react";
 import MasterLayout from "../../layouts/admin/MasterLayout";
 import { Link } from "react-router-dom";
+import axios from 'axios';
 
 
 
 function Dashboard() {
+   const [orderCount, setOrderCount] = useState([]);
+   useEffect(() => {
+      axios.get(`/api/admin-order-count`).then(res => {
+          if (res.data.status === 200) {
+            setOrderCount(res.data.orderCount);
+          }
+      });
+  }, []);
+
+   const [categoyCount, setCategoyCount] = useState([]);
+   useEffect(() => {
+      axios.get(`/api/admin-category-count`).then(res => {
+          if (res.data.status === 200) {
+            setCategoyCount(res.data.categoryCount);
+          }
+      });
+  }, []);
+   const [productCount, setProductCount] = useState([]);
+   useEffect(() => {
+      axios.get(`/api/admin-product-count`).then(res => {
+          if (res.data.status === 200) {
+            setProductCount(res.data.productCount);
+          }
+      });
+  }, []);
+
+
+
+
    return (
 
       <MasterLayout>
@@ -13,7 +43,7 @@ function Dashboard() {
                <div className="col-lg-4 col-6 mt-4">
                   <div className="small-box card d-flex" style={{ backgroundColor: "#88a889",height:'140px' }}>
                      <div className="d-flex pt-2 pl-3" style={{ fontSize: "44px" }}>
-                        <i className="fa-solid fa-cart-flatbed-suitcase" /> <span style={{ fontSize: ' 24px', paddingLeft: "23px" }}></span>
+                        <i className="fa-solid fa-cart-flatbed-suitcase" /> <span style={{ fontSize: ' 24px', paddingLeft: "23px" }}> {orderCount}</span>
                      </div>
                      <div className=" d-flex inner">
                         <h4 className="pl-2">Total Orders </h4>
@@ -22,6 +52,21 @@ function Dashboard() {
                         <i className="ion ion-stats-bars"></i>
                      </div>
                      <Link href="{{ route('orders.index') }}" className="small-box-footer text-dark">More info <i className="fas fa-arrow-circle-right"></i></Link>
+                  </div>
+               </div>
+               <div className="col-lg-4 col-6 mt-4">
+                  <div className="small-box card " style={{ backgroundColor: "#54b58e", height:'140px' }}>
+                     <div className="d-flex pt-2 pl-2" style={{ fontSize: "44px" }}>
+                        <i className="fa-solid fa-store" /> <span style={{ fontSize: "24px", paddingLeft: "23px" }}> {productCount}</span>
+                     </div>
+                     <div className=" d-flex inner">
+                        <h4 className="pl-2">Total Products</h4>
+                        <span className="pl-4"><i className="fa-brands fa-quinscape"></i> Quantity : </span>
+                     </div>
+                     <div className="icon">
+                        <i className="ion ion-stats-bars"></i>
+                     </div>
+                     <Link href="{{ route('products.index') }}" className="small-box-footer text-dark">More info <i className="fas fa-arrow-circle-right"></i></Link>
                   </div>
                </div>
                <div className="col-lg-4 col-6 mt-4">
@@ -39,25 +84,11 @@ function Dashboard() {
                      <Link href="{{ route('orders.index') }}" className="small-box-footer text-dark">More info <i className="fas fa-arrow-circle-right"></i></Link>
                   </div>
                </div>
-               <div className="col-lg-4 col-6 mt-4">
-                  <div className="small-box card " style={{ backgroundColor: "#54b58e", height:'140px' }}>
-                     <div className="d-flex pt-2 pl-2" style={{ fontSize: "44px" }}>
-                        <i className="fa-solid fa-store" /> <span style={{ fontSize: "24px", paddingLeft: "23px" }}> tty</span>
-                     </div>
-                     <div className=" d-flex inner">
-                        <h4 className="pl-2">Total Products</h4>
-                        <span className="pl-4"><i className="fa-brands fa-quinscape"></i> Quantity : </span>
-                     </div>
-                     <div className="icon">
-                        <i className="ion ion-stats-bars"></i>
-                     </div>
-                     <Link href="{{ route('products.index') }}" className="small-box-footer text-dark">More info <i className="fas fa-arrow-circle-right"></i></Link>
-                  </div>
-               </div>
+              
                <div className="col-lg-4 col-6 mt-4">
                   <div className="small-box card d-flex" style={{ backgroundColor: "#caf47b",height:'140px' }}>
                      <div className="d-flex pt-2 pl-3" style={{ fontSize: "44px" }}>
-                        <i className="fa-solid fa-cart-shopping"> <span style={{ fontSize: "24px", paddingLeft: "23px" }}>yyy</span></i>
+                        <i className="fa-solid fa-cart-shopping"> <span style={{ fontSize: "24px", paddingLeft: "23px" }}>{categoyCount}</span></i>
                      </div>
                      <div className=" d-flex inner">
                         <h4 className="pl-3">Total Category</h4>

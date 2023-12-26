@@ -47,7 +47,10 @@ Route::delete('delete-cart-product/{cart_id}',[CartController::class,'deleteCart
 
 Route::post('place-order',[placeOrderController::class,'placeOrdet']);
 Route::get('/admin-orders',[placeOrderController::class,'index']);
-Route::get('/admin-order-details',[placeOrderController::class,'oderDetails']);
+Route::get('/admin-order-details/{order_id}',[placeOrderController::class,'r']);
+Route::get('/admin-order-count',[placeOrderController::class,'orderCount']);
+Route::get('/admin-category-count',[placeOrderController::class,'categoryCount']);
+Route::get('/admin-product-count',[placeOrderController::class,'productCount']);
 
 
 

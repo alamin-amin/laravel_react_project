@@ -30,10 +30,9 @@ function All_Order() {
                     <td>{items.phone}</td>
                     <td>{items.tracking_no}</td>
                     <td>{items.payment_mode}</td>
-                    <td>{items.status}</td>
                     <td>{items.status === 0 ? 'visible' : 'Hidden'}</td>
                     <td>
-                        <Link to={'#'} className='btn btn-success btn-sm me-1'>View</Link>
+                        <Link to={`/admin/order_details/${items.id}`} className='btn btn-success btn-sm me-1'>View</Link>
                     </td>
                 </tr>
             )
@@ -61,8 +60,7 @@ function All_Order() {
                                         <th>Customers</th>
                                         <th>Phone</th>
                                         <th>Traking No</th>
-                                        <th>Payment</th>
-                                        <th>Price</th>
+                                        <th>Payment</th>                                     
                                         <th>Status</th>
                                         <th>Action</th>
                                     </tr>
